@@ -3,15 +3,18 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Department;
 
-class EmployeeController extends Controller
+class DepartmentsController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        //
+        $departments = Department::latest()->paginate(5);
+        $title = 'Departments';
+        return view('departments.index', compact('departments', 'title'));
     }
 
     /**

@@ -1,0 +1,106 @@
+<x-layout>
+    <x-slot:title>{{ $title }}</x-slot:title>
+    <main>
+        <div class="mx-auto max-w-2xl px-4 py-6 sm:px-6 lg:px-8">
+            <form action="{{ route('employees.store') }}" method="POST">
+                @csrf
+                <div class="space-y-12">
+                    <div class="border-b border-gray-900/10 pb-12">
+                        <h2 class="text-base font-semibold leading-7 text-gray-900">Personal Information</h2>
+                        <p class="mt-1 text-sm leading-6 text-gray-600">Please provide the employee's details below.</p>
+                        <div class="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-2">
+                            <div class="sm:col-span-1">
+                                <label for="nama_lengkap" class="block text-sm font-medium leading-6 text-gray-900">Full
+                                    Name</label>
+                                <div class="mt-2">
+                                    <input type="text" name="nama_lengkap" id="nama_lengkap" autocomplete="nama_lengkap"
+                                        class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                                </div>
+                            </div>
+                            <div class="sm:col-span-1">
+                                <label for="email" class="block text-sm font-medium leading-6 text-gray-900">Email
+                                    address</label>
+                                <div class="mt-2">
+                                    <input id="email" name="email" type="email" autocomplete="email"
+                                        class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                                </div>
+                            </div>
+                            <div class="sm:col-span-1">
+                                <label for="nomor_telepon"
+                                    class="block text-sm font-medium leading-6 text-gray-900">Phone Number</label>
+                                <div class="mt-2">
+                                    <input id="nomor_telepon" name="nomor_telepon" type="text"
+                                        autocomplete="nomor_telepon"
+                                        class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                                </div>
+                            </div>
+                            <div class="sm:col-span-1">
+                                <label for="tanggal_lahir"
+                                    class="block text-sm font-medium leading-6 text-gray-900">Date of Birth</label>
+                                <div class="mt-2">
+                                    <input id="tanggal_lahir" name="tanggal_lahir" type="date"
+                                        autocomplete="tanggal_lahir"
+                                        class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                                </div>
+                            </div>
+                            <div class="sm:col-span-2">
+                                <label for="alamat"
+                                    class="block text-sm font-medium leading-6 text-gray-900">Address</label>
+                                <div class="mt-2">
+                                    <textarea id="alamat" name="alamat" rows="3"
+                                        class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"></textarea>
+                                </div>
+                            </div>
+                            <div class="sm:col-span-1">
+                                <label for="tanggal_masuk"
+                                    class="block text-sm font-medium leading-6 text-gray-900">Start Date</label>
+                                <div class="mt-2">
+                                    <input id="tanggal_masuk" name="tanggal_masuk" type="date"
+                                        autocomplete="tanggal_masuk"
+                                        class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                                </div>
+                            </div>
+                            <div class="sm:col-span-1">
+                                <label for="status"
+                                    class="block text-sm font-medium leading-6 text-gray-900">Status</label>
+                                <div class="mt-2">
+                                    <select id="status" name="status"
+                                        class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                                        <option value="aktif">Aktif</option>
+                                        <option value="nonaktif">Nonaktif</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="sm:col-span-1">
+                                <label for="department_id"
+                                    class="block text-sm font-medium leading-6 text-gray-900">Department</label>
+                                <div class="mt-2">
+                                    <select id="department_id" name="department_id"
+                                        class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                                        <option value="1">DTIK</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="sm:col-span-1">
+                                <label for="jabatan_id"
+                                    class="block text-sm font-medium leading-6 text-gray-900">Position</label>
+                                <div class="mt-2">
+                                    <select id="jabatan_id" name="jabatan_id"
+                                        class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                                        <option value="1">Dosen</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="mt-6 flex items-center justify-end gap-x-6">
+                    <a href="{{ route('employees.index') }}"
+                        class="text-sm font-semibold leading-6 text-gray-900">Cancel</a>
+                    <button type="submit"
+                        class="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Save</button>
+                </div>
+            </form>
+        </div>
+    </main>
+</x-layout>

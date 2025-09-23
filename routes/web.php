@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
+use App\Http\Controllers\EmployeesController;
+use App\Http\Controllers\DepartmentsController;
 
 Route::get('/', function () {
     return view('sign');
@@ -12,16 +14,12 @@ Route::post('/sign', function (Request $request) {
     $password = $request->input('password');
 
     if ($email === 'fitdafac@gmail.com' && $password === '15112005') {
-        return redirect('/employee')->with('success', 'Login berhasil!');
+        return redirect('employees')->with('success', 'Login berhasil!');
     } else {
         return back()->withErrors(['login' => 'Email atau password salah.']);
     }
 });
 
-route::get('/employee', function() {
-    return view('employee');
-});
+Route::resource('employees',EmployeesController::class);
 
-route::get('/department', function() {
-    return view('department');
-});
+Route::resource('departments',DepartmentsController::class);

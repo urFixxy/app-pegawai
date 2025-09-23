@@ -10,10 +10,10 @@
                     <div class="hidden md:block">
                         <div class="ml-10 flex items-baseline space-x-4">
                             <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-white/5 hover:text-white" -->
-                            <a href="/employee" aria-current="page"
-                                class="rounded-md bg-gray-900 px-3 py-2 text-sm font-medium text-white">Employees</a>
-                            <a href="/department"
-                                class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-white/5 hover:text-white">Departments</a>
+                            <a href="/employees" aria-current="page"
+                                class="{{ request()->is('employee') ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-white/5 hover:text-white'}} rounded-md  px-3 py-2 text-sm font-medium">Employees</a>
+                            <a href="/departments"
+                                class="{{ request()->is('department') ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-white/5 hover:text-white'}} rounded-md  px-3 py-2 text-sm font-medium">Departments</a>
                             <a href="/attendance"
                                 class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-white/5 hover:text-white">Attendances</a>
                             <a href="/migration"

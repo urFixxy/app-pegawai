@@ -18,7 +18,9 @@ return new class extends Migration
             $table->string('nomor_telepon', 15); 
             $table->date('tanggal_lahir');  
             $table->text('alamat'); 
-            $table->date('tanggal_masuk'); 
+            $table->date('tanggal_masuk');
+            $table->foreignId('department_id')->constrained('departments')->onDelete('cascade');
+            $table->foreignId('jabatan_id')->constrained('positions')->onDelete('cascade');
             $table->enum('status', ['aktif', 'nonaktif'])->default  ('aktif');
             $table->timestamps();
         });

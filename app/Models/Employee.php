@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Employees extends Model
+class Employee extends Model
 {
     protected $fillable = [
         'nama_lengkap',
@@ -13,6 +13,8 @@ class Employees extends Model
         'tanggal_lahir',
         'alamat',
         'tanggal_masuk',
+        'department_id',
+        'jabatan_id',
         'status',
     ];
 }
