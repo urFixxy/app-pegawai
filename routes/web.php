@@ -2,24 +2,40 @@
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\EmployeesController;
 use App\Http\Controllers\DepartmentsController;
 
+// Halaman login
 Route::get('/', function () {
     return view('sign');
-});
+})->name('login')->middleware('guest');
 
+// Proses login
 Route::post('/sign', function (Request $request) {
-    $email = $request->input('email');
-    $password = $request->input('password');
+    $credentials = $request->only('email', 'password');
 
-    if ($email === 'fitdafac@gmail.com' && $password === '15112005') {
-        return redirect('employees')->with('success', 'Login berhasil!');
-    } else {
-        return back()->withErrors(['login' => 'Email atau password salah.']);
+    if (Auth::attempt($credentials)) {
+        $request->session()->regenerate();
+        return redirect()->intended('employees')->with('success', 'Login berhasil!');
     }
+
+    return back()->withErrors([
+        'login' => 'Email atau password salah.',
+    ]);
 });
 
-Route::resource('employees',EmployeesController::class);
+// Logout
+Route::post('/logout', function (Request $request) {
+    Auth::logout();
+    $request->session()->invalidate();
+    $request->session()->regenerateToken();
 
-Route::resource('departments',DepartmentsController::class);
+    return redirect('/')->with('success', 'Berhasil logout!');
+})->middleware('auth')->name('logout');
+
+// Proteksi route dengan auth
+Route::middleware('auth')->group(function () {
+    Route::resource('employees', EmployeesController::class);
+    Route::resource('departments', DepartmentsController::class);
+});

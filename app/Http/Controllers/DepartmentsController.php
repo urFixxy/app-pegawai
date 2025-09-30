@@ -38,7 +38,9 @@ class DepartmentsController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $department = Department::find($id);
+        $title = "Departments";
+        return view('departments.show', compact('department', 'title'));
     }
 
     /**

@@ -7,14 +7,11 @@
                 @method('PUT')
                 <div class="space-y-12">
                     <div class="border-b border-gray-900/10 pb-12">
-                        <h2 class="text-base font-semibold leading-7 text-gray-900">Edit Employee Information</h2>
-                        <p class="mt-1 text-sm leading-6 text-gray-600">Update the employee's details below.</p>
-
-                        <div class="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-2">
+                        <div class="mt-3 grid grid-cols-1 gap-x-6 gap-y-3 sm:grid-cols-2">
                             <div class="sm:col-span-1">
                                 <label for="nama_lengkap" class="block text-sm font-medium leading-6 text-gray-900">
                                     Full Name</label>
-                                <div class="mt-2">
+                                <div class="mt-1">
                                     <input type="text" name="nama_lengkap" id="nama_lengkap"
                                         value="{{ old('nama_lengkap', $employee->nama_lengkap) }}"
                                         class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
@@ -23,7 +20,7 @@
                             <div class="sm:col-span-1">
                                 <label for="email" class="block text-sm font-medium leading-6 text-gray-900">
                                     Email address</label>
-                                <div class="mt-2">
+                                <div class="mt-1">
                                     <input id="email" name="email" type="email"
                                         value="{{ old('email', $employee->email) }}"
                                         class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
@@ -32,7 +29,7 @@
                             <div class="sm:col-span-1">
                                 <label for="nomor_telepon" class="block text-sm font-medium leading-6 text-gray-900">
                                     Phone Number</label>
-                                <div class="mt-2">
+                                <div class="mt-1">
                                     <input id="nomor_telepon" name="nomor_telepon" type="text"
                                         value="{{ old('nomor_telepon', $employee->nomor_telepon) }}"
                                         class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
@@ -41,7 +38,7 @@
                             <div class="sm:col-span-1">
                                 <label for="tanggal_lahir" class="block text-sm font-medium leading-6 text-gray-900">
                                     Date of Birth</label>
-                                <div class="mt-2">
+                                <div class="mt-1">
                                     <input id="tanggal_lahir" name="tanggal_lahir" type="date"
                                         value="{{ old('tanggal_lahir', $employee->tanggal_lahir) }}"
                                         class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
@@ -50,7 +47,7 @@
                             <div class="sm:col-span-2">
                                 <label for="alamat" class="block text-sm font-medium leading-6 text-gray-900">
                                     Address</label>
-                                <div class="mt-2">
+                                <div class="mt-1">
                                     <textarea id="alamat" name="alamat" rows="3"
                                         class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">{{ old('alamat', $employee->alamat) }}</textarea>
                                 </div>
@@ -58,7 +55,7 @@
                             <div class="sm:col-span-1">
                                 <label for="tanggal_masuk" class="block text-sm font-medium leading-6 text-gray-900">
                                     Start Date</label>
-                                <div class="mt-2">
+                                <div class="mt-1">
                                     <input id="tanggal_masuk" name="tanggal_masuk" type="date"
                                         value="{{ old('tanggal_masuk', $employee->tanggal_masuk) }}"
                                         class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
@@ -67,7 +64,7 @@
                             <div class="sm:col-span-1">
                                 <label for="status" class="block text-sm font-medium leading-6 text-gray-900">
                                     Status</label>
-                                <div class="mt-2">
+                                <div class="mt-1">
                                     <select id="status" name="status"
                                         class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
                                         <option value="aktif" {{ old('status', $employee->status) == 'aktif' ? 'selected' : '' }}>Aktif</option>
@@ -78,7 +75,7 @@
                             <div class="sm:col-span-1">
                                 <label for="department_id" class="block text-sm font-medium leading-6 text-gray-900">
                                     Department</label>
-                                <div class="mt-2">
+                                <div class="mt-1">
                                     <select id="department_id" name="department_id"
                                         class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
                                         <option value="1" {{ old('department_id', $employee->department_id) == 1 ? 'selected' : '' }}>DTIK</option>
@@ -88,7 +85,7 @@
                             <div class="sm:col-span-1">
                                 <label for="jabatan_id" class="block text-sm font-medium leading-6 text-gray-900">
                                     Position</label>
-                                <div class="mt-2">
+                                <div class="mt-1">
                                     <select id="jabatan_id" name="jabatan_id"
                                         class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
                                         <option value="1" {{ old('jabatan_id', $employee->jabatan_id) == 1 ? 'selected' : '' }}>Dosen</option>
@@ -99,7 +96,7 @@
                     </div>
                 </div>
 
-                <div class="mt-6 flex items-center justify-end gap-x-6">
+                <div class="mt-3 flex items-center justify-end gap-x-6">
                     <a href="{{ route('employees.index') }}"
                         class="text-sm font-semibold leading-6 text-gray-900">Cancel</a>
                     <button type="submit"

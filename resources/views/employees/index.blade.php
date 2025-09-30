@@ -3,10 +3,10 @@
     <main>
         <div class="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between mb-4">
-                <h1 class="text-xl font-bold tracking-tight text-gray-900">Daftar Pegawai</h1>
+                <h1 class="text-xl font-bold tracking-tight text-gray-900">Employees List</h1>
                 <a href="{{ route('employees.create') }}"
-                    class="inline-flex items-center px-4 py-2 bg-blue-600 text-white text-sm font-medium rounded-md shadow hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
-                    + Tambah Pegawai
+                    class="inline-flex items-center space-x-2 px-4 py-2 bg-indigo-600 text-white text-sm font-medium rounded-md shadow hover:bg-indigo-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                    <i class="fa-solid fa-plus"></i><span>Add employee</span>
                 </a>
             </div>
 
