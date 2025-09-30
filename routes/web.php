@@ -6,8 +6,13 @@ use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\EmployeesController;
 use App\Http\Controllers\DepartmentsController;
 
-// Halaman login
+// Halaman utama -> redirect ke employees kalau login
 Route::get('/', function () {
+    return redirect()->route('employees.index');
+})->middleware('auth');
+
+// Halaman login
+Route::get('/login', function () {
     return view('sign');
 })->name('login')->middleware('guest');
 
@@ -31,7 +36,7 @@ Route::post('/logout', function (Request $request) {
     $request->session()->invalidate();
     $request->session()->regenerateToken();
 
-    return redirect('/')->with('success', 'Berhasil logout!');
+    return redirect('/login')->with('success', 'Berhasil logout!');
 })->middleware('auth')->name('logout');
 
 // Proteksi route dengan auth

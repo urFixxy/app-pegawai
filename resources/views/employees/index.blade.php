@@ -3,10 +3,10 @@
     <main>
         <div class="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between mb-4">
-                <h1 class="text-xl font-bold tracking-tight text-gray-900">Employees List</h1>
+                <h1 class="text-xl font-bold tracking-tight text-gray-900">List Employees</h1>
                 <a href="{{ route('employees.create') }}"
-                    class="inline-flex items-center space-x-2 px-4 py-2 bg-indigo-600 text-white text-sm font-medium rounded-md shadow hover:bg-indigo-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
-                    <i class="fa-solid fa-plus"></i><span>Add employee</span>
+                    class="inline-flex items-center space-x-2 px-4 py-2 bg-indigo-600 text-white text-sm font-medium rounded-md shadow hover:bg-indigo-500">
+                    <i class="fa-solid fa-plus"></i>
                 </a>
             </div>
 
@@ -16,25 +16,22 @@
                         <tr>
                             <th scope="col"
                                 class="py-3.5 pl-4 pr-3 text-center text-sm font-semibold text-gray-900 sm:pl-6">
-                                Nama Lengkap
+                                Full Name
                             </th>
                             <th scope="col" class="px-3 py-3.5 text-center text-sm font-semibold text-gray-900">Email
                             </th>
-                            <th scope="col" class="px-3 py-3.5 text-center text-sm font-semibold text-gray-900">Nomor
-                                Telepon</th>
-                            <th scope="col" class="px-3 py-3.5 text-center text-sm font-semibold text-gray-900">Tanggal
-                                Lahir</th>
-                            <th scope="col" class="px-3 py-3.5 text-center text-sm font-semibold text-gray-900">Alamat
+                            <th scope="col" class="px-3 py-3.5 text-center text-sm font-semibold text-gray-900">Phone</th>
+                            <th scope="col" class="px-3 py-3.5 text-center text-sm font-semibold text-gray-900">Date of Birth</th>
+                            <th scope="col" class="px-3 py-3.5 text-center text-sm font-semibold text-gray-900">Address
                             </th>
-                            <th scope="col" class="px-3 py-3.5 text-center text-sm font-semibold text-gray-900">Tanggal
-                                Masuk</th>
+                            <th scope="col" class="px-3 py-3.5 text-center text-sm font-semibold text-gray-900">Entry Date</th>
                             <th scope="col" class="px-3 py-3.5 text-center text-sm font-semibold text-gray-900">
                                 Department</th>
-                            <th scope="col" class="px-3 py-3.5 text-center text-sm font-semibold text-gray-900">Jabatan
+                            <th scope="col" class="px-3 py-3.5 text-center text-sm font-semibold text-gray-900">Position
                             </th>
                             <th scope="col" class="px-3 py-3.5 text-center text-sm font-semibold text-gray-900">Status
                             </th>
-                            <th scope="col" class="px-3 py-3.5 text-center text-sm font-semibold text-gray-900">Aksi
+                            <th scope="col" class="px-3 py-3.5 text-center text-sm font-semibold text-gray-900">Action
                             </th>
                         </tr>
                     </thead>

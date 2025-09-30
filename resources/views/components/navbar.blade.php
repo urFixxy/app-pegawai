@@ -49,16 +49,23 @@
                                     alt="" class="size-8 rounded-full outline -outline-offset-1 outline-white/10" />
                             </button>
 
-                            <el-menu anchor="bottom end" popover
+                            <el-menu anchor="bottom" popover
                                 class="w-48 origin-top-right rounded-md bg-white py-1 shadow-lg outline-1 outline-black/5 transition transition-discrete [--anchor-gap:--spacing(2)] data-closed:scale-95 data-closed:transform data-closed:opacity-0 data-enter:duration-100 data-enter:ease-out data-leave:duration-75 data-leave:ease-in">
                                 <a href="#"
                                     class="block px-4 py-2 text-sm text-gray-700 focus:bg-gray-100 focus:outline-hidden">Your
                                     profile</a>
                                 <a href="#"
                                     class="block px-4 py-2 text-sm text-gray-700 focus:bg-gray-100 focus:outline-hidden">Settings</a>
-                                <a href="#"
-                                    class="block px-4 py-2 text-sm text-gray-700 focus:bg-gray-100 focus:outline-hidden">Sign
-                                    out</a>
+                                <a href="{{ route('logout') }}"
+                                    onclick="event.preventDefault(); document.getElementById('logout-form').submit();"
+                                    class="block px-4 py-2 text-sm text-gray-700 focus:bg-gray-100 focus:outline-hidden">
+                                    Sign out
+                                </a>
+
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="hidden">
+                                    @csrf
+                                </form>
+
                             </el-menu>
                         </el-dropdown>
                     </div>
