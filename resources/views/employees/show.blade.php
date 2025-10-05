@@ -1,6 +1,12 @@
-<x-layout>
-    <x-slot:title>{{ $title }}</x-slot:title>
+@extends('layouts.app')
 
+@section('title', $title)
+
+@section('header')
+    {{ $title }}
+@endsection
+
+@section('content')
     <div class="max-w-4xl mx-auto">
         <h1 class="text-2xl font-bold mb-4 text-gray-800">Detail Pegawai</h1>
 
@@ -52,4 +58,4 @@
             </a>
         </div>
     </div>
-</x-layout>
+@endsection

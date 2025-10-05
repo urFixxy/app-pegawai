@@ -22,7 +22,8 @@ class DepartmentsController extends Controller
      */
     public function create()
     {
-        //
+        $title = "Departments";
+        return view('departments.create', compact('title'));
     }
 
     /**
@@ -30,7 +31,11 @@ class DepartmentsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'nama_department' => 'required|string|max:255',
+        ]);
+        Department::create($request->all());
+        return redirect()->route('departments.index');
     }
 
     /**
@@ -48,7 +53,9 @@ class DepartmentsController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $department = Department::find($id);
+        $title = 'Departments';
+        return view('departments.edit', compact('department', 'title'));
     }
 
     /**
@@ -56,7 +63,14 @@ class DepartmentsController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $request->validate([
+            'nama_department' => 'required|string|max:255',
+        ]);
+        $department = Department::findOrFail($id);
+        $department->update($request->only([
+            'nama_department'
+        ]));
+        return redirect()->route('departments.index');
     }
 
     /**
@@ -64,6 +78,8 @@ class DepartmentsController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $deparment = Department::find($id);
+        $deparment->delete();
+        return redirect()->route('departments.index');
     }
 }
