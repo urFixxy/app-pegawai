@@ -12,7 +12,6 @@
         <div class="space-y-12">
             <div class="border-b border-gray-900/10 pb-12">
                 <div class="mt-3 grid grid-cols-1 gap-x-6 gap-y-3 sm:grid-cols-2">
-                    {{-- Full Name --}}
                     <div class="sm:col-span-1">
                         <label for="nama_lengkap" class="block text-sm font-medium leading-6 text-gray-900">Full
                             Name</label>
@@ -23,7 +22,6 @@
                         </div>
                     </div>
 
-                    {{-- Email --}}
                     <div class="sm:col-span-1">
                         <label for="email" class="block text-sm font-medium leading-6 text-gray-900">Email</label>
                         <div class="mt-1">
@@ -33,7 +31,6 @@
                         </div>
                     </div>
 
-                    {{-- Phone Number --}}
                     <div class="sm:col-span-1">
                         <label for="nomor_telepon" class="block text-sm font-medium leading-6 text-gray-900">Phone
                             Number</label>
@@ -44,7 +41,6 @@
                         </div>
                     </div>
 
-                    {{-- Date of Birth --}}
                     <div class="sm:col-span-1">
                         <label for="tanggal_lahir" class="block text-sm font-medium leading-6 text-gray-900">Date of
                             Birth</label>
@@ -55,7 +51,6 @@
                         </div>
                     </div>
 
-                    {{-- Address --}}
                     <div class="sm:col-span-2">
                         <label for="alamat" class="block text-sm font-medium leading-6 text-gray-900">Address</label>
                         <div class="mt-1">
@@ -65,7 +60,6 @@
                         </div>
                     </div>
 
-                    {{-- Start Date --}}
                     <div class="sm:col-span-1">
                         <label for="tanggal_masuk" class="block text-sm font-medium leading-6 text-gray-900">Start
                             Date</label>
@@ -76,20 +70,18 @@
                         </div>
                     </div>
 
-                    {{-- Status --}}
                     <div class="sm:col-span-1">
                         <label for="status" class="block text-sm font-medium leading-6 text-gray-900">Status</label>
                         <div class="mt-1">
                             <select id="status" name="status" class="block w-full p-2 rounded-md border-0 py-1.5 text-gray-900 shadow-sm
                                     ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600
                                     sm:text-sm sm:leading-6">
-                                <option value="aktif">Aktif</option>
-                                <option value="nonaktif">Nonaktif</option>
+                                <option value="Aktif">Aktif</option>
+                                <option value="Nonaktif">Nonaktif</option>
                             </select>
                         </div>
                     </div>
 
-                    {{-- Department --}}
                     <div class="sm:col-span-1">
                         <label for="department_id"
                             class="block text-sm font-medium leading-6 text-gray-900">Department</label>
@@ -102,7 +94,6 @@
                         </div>
                     </div>
 
-                    {{-- Position --}}
                     <div class="sm:col-span-1">
                         <label for="jabatan_id" class="block text-sm font-medium leading-6 text-gray-900">Position</label>
                         <div class="mt-1">
@@ -117,7 +108,6 @@
             </div>
         </div>
 
-        {{-- Buttons --}}
         <div class="mt-3 flex items-center justify-end gap-x-6">
             <a href="{{ route('employees.index') }}" class="text-sm font-semibold leading-6 text-gray-900">Cancel</a>
             <button type="submit" class="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm

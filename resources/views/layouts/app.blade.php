@@ -9,24 +9,27 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
         integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="https://rsms.me/inter/inter.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
 </head>
 
 <body class="h-full">
+    {{-- Navbar --}}
+    @include('components.navbar')
     <div class="min-h-full">
-        {{-- Navbar --}}
-        @include('components.navbar')
 
         {{-- Header --}}
-        <div>
-            <header class="relative bg-white shadow-sm">
-                <div class="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
-                    <h1 class="text-3xl font-bold tracking-tight text-gray-900">
-                        @yield('header')
-                    </h1>
-                </div>
-            </header>
-        </div>
+        <header class="bg-white shadow-md sticky -top-17 z-30">
+            <div class="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
+                <h1 class="text-3xl text-center font-bold tracking-tight text-gray-900 mt-17">
+                    @yield('header')
+                </h1>
+            </div>
+        </header>
 
         {{-- Main Content --}}
         <main>
@@ -35,6 +38,9 @@
             </div>
         </main>
     </div>
+
+    {{-- Footer --}}
+    @include('components.footer')
 
     <script src="https://cdn.jsdelivr.net/npm/@tailwindplus/elements@1" type="module"></script>
 </body>

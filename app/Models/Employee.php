@@ -17,4 +17,16 @@ class Employee extends Model
         'jabatan_id',
         'status',
     ];
+
+    // Relasi ke Department
+    public function department()
+    {
+        return $this->belongsTo(Department::class, 'department_id');
+    }
+
+    // Relasi ke Position/Jabatan
+    public function position()
+    {
+        return $this->belongsTo(Position::class, 'jabatan_id');
+    }
 }

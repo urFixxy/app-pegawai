@@ -4,14 +4,10 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Salaries extends Model
+class Position extends Model
 {
     protected $fillable = [
-        'karyawan_id',
-        'bulan',
+        'nama_jabatan',
         'gaji_pokok',
-        'tunjangan',
-        'potongan',
-        'total_gaji',
     ];
 }

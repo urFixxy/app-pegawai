@@ -20,66 +20,74 @@
                 <thead class="bg-gray-50">
                     <tr>
                         <th scope="col" class="py-3.5 pl-4 pr-3 text-center text-sm font-semibold text-gray-900 sm:pl-6">
-                            Full
-                            Name</th>
+                            Full Name</th>
                         <th scope="col" class="px-3 py-3.5 text-center text-sm font-semibold text-gray-900">Email</th>
                         <th scope="col" class="px-3 py-3.5 text-center text-sm font-semibold text-gray-900">Phone</th>
-                        <th scope="col" class="px-3 py-3.5 text-center text-sm font-semibold text-gray-900">Date of Birth
-                        </th>
+                        <th scope="col" class="px-3 py-3.5 text-center text-sm font-semibold text-gray-900">Date of Birth</th>
                         <th scope="col" class="px-3 py-3.5 text-center text-sm font-semibold text-gray-900">Address</th>
                         <th scope="col" class="px-3 py-3.5 text-center text-sm font-semibold text-gray-900">Entry Date</th>
-                        <!-- <th scope="col" class="px-3 py-3.5 text-center text-sm font-semibold text-gray-900">Department</th>
-                        <th scope="col" class="px-3 py-3.5 text-center text-sm font-semibold text-gray-900">Position</th> -->
                         <th scope="col" class="px-3 py-3.5 text-center text-sm font-semibold text-gray-900">Status</th>
                         <th scope="col" class="px-3 py-3.5 text-center text-sm font-semibold text-gray-900">Action</th>
                     </tr>
                 </thead>
                 <tbody class="divide-y divide-gray-200 bg-white">
-                    @foreach($employees as $employee)
+                    @foreach($employee as $item)
                         <tr>
-                            <td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6">
-                                {{ $employee->nama_lengkap }}
+                            <td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6 text-center">
+                                {{ $item->nama_lengkap }}
                             </td>
                             <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500 text-center">
-                                {{ $employee->email }}
+                                {{ $item->email }}
                             </td>
                             <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500 text-center">
-                                {{ $employee->nomor_telepon }}
+                                {{ $item->nomor_telepon }}
                             </td>
                             <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500 text-center">
-                                {{ $employee->tanggal_lahir }}
+                                {{ \Carbon\Carbon::parse($item->tanggal_lahir)->format('d-m-Y') }}
+                            </td>
+                            <td class="px-3 py-4 text-sm text-gray-500 text-center">
+                                {{ Str::limit($item->alamat, 30) }}
                             </td>
                             <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500 text-center">
-                                {{ $employee->alamat }}
+                                {{ \Carbon\Carbon::parse($item->tanggal_masuk)->format('d-m-Y') }}
                             </td>
                             <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500 text-center">
-                                {{ $employee->tanggal_masuk }}
+                                <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium
+                                    {{ $item->status == 'Aktif' ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800' }}">
+                                    {{ $item->status }}
+                                </span>
                             </td>
-                            <!-- <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500 text-center">
-                                {{ $employee->department_id }}
-                            </td>
-                            <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500 text-center">
-                                {{ $employee->jabatan_id }}
-                            </td> -->
-                            <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500 text-center">
-                                {{ $employee->status }}
-                            </td>
-                            <td class="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-6">
-                                <a href="{{ route('employees.show', $employee->id) }}"
-                                    class="text-indigo-600 hover:text-indigo-900">Detail</a> |
-                                <a href="{{ route('employees.edit', $employee->id) }}"
-                                    class="text-indigo-600 hover:text-indigo-900">Edit</a> |
-                                <form action="{{ route('employees.destroy', $employee->id) }}" method="POST" class="inline">
-                                    @csrf
-                                    @method('DELETE')
-                                    <button type="submit" onclick="return confirm('Yakin ingin menghapus?')"
-                                        class="text-red-600 hover:text-red-900">Hapus</button>
-                                </form>
+                            <td class="relative whitespace-nowrap py-4 pl-3 pr-4 text-sm font-medium sm:pr-6 text-center">
+                                <div class="flex items-center justify-center gap-3">
+                                    <a href="{{ route('employees.show', $item->id) }}"
+                                        class="text-indigo-600 hover:text-indigo-900"
+                                        title="Detail">
+                                        <i class="fa-solid fa-eye text-lg"></i>
+                                    </a>
+                                    <a href="{{ route('employees.edit', $item->id) }}"
+                                        class="text-yellow-600 hover:text-yellow-900"
+                                        title="Edit">
+                                        <i class="fa-solid fa-pen-to-square text-lg"></i>
+                                    </a>
+                                    <form action="{{ route('employees.destroy', $item->id) }}" method="POST" class="inline">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" onclick="return confirm('Yakin ingin menghapus?')"
+                                            class="text-red-600 hover:text-red-900"
+                                            title="Hapus">
+                                            <i class="fa-solid fa-trash text-lg"></i>
+                                        </button>
+                                    </form>
+                                </div>
                             </td>
                         </tr>
                     @endforeach
                 </tbody>
             </table>
+        </div>
+
+        <div class="mt-4">
+            {{ $employee->links() }}
         </div>
     </div>
 @endsection

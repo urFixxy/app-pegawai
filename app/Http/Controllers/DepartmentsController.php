@@ -12,9 +12,9 @@ class DepartmentsController extends Controller
      */
     public function index()
     {
-        $departments = Department::latest()->paginate(5);
+        $department = Department::latest()->paginate(5);
         $title = 'Departments';
-        return view('departments.index', compact('departments', 'title'));
+        return view('departments.index', compact('department', 'title'));
     }
 
     /**
