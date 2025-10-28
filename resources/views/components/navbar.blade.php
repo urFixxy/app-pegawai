@@ -1,5 +1,6 @@
 <div>
-    <nav class="bg-gradient-to-r from-gray-800 to-gray-600 mx-5 rounded-full mt-2 fixed inset-x-5 z-50 shadow-md shadow-gray-900/50">
+    <nav
+        class="bg-gradient-to-r from-gray-800 to-gray-600 mx-5 rounded-full mt-2 fixed inset-x-5 z-50 shadow-md shadow-gray-900/50">
         <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div class="flex h-16 items-center justify-between">
                 <div class="shrink-0">
@@ -31,52 +32,47 @@
                 </div>
                 <div class="hidden md:block">
                     <div class="ml-4 flex items-center md:ml-6">
-                        <button type="button"
-                            class="relative rounded-full p-1 text-gray-400 hover:text-white focus:outline-2 focus:outline-offset-2 focus:outline-indigo-500">
-                            <span class="absolute -inset-1.5"></span>
-                            <span class="sr-only">View notifications</span>
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
-                                data-slot="icon" aria-hidden="true" class="size-6">
-                                <path
-                                    d="M14.857 17.082a23.848 23.848 0 0 0 5.454-1.31A8.967 8.967 0 0 1 18 9.75V9A6 6 0 0 0 6 9v.75a8.967 8.967 0 0 1-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 0 1-5.714 0m5.714 0a3 3 0 1 1-5.714 0"
-                                    stroke-linecap="round" stroke-linejoin="round" />
-                            </svg>
-                        </button>
-
                         <!-- Profile dropdown -->
-                        <el-dropdown class="relative ml-3">
-                            <button
+                        <div class="relative ml-3">
+                            <button id="profile-menu-button" type="button"
                                 class="relative flex max-w-xs items-center rounded-full focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500">
                                 <span class="absolute -inset-1.5"></span>
                                 <span class="sr-only">Open user menu</span>
-                                <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-                                    alt="" class="size-8 rounded-full outline -outline-offset-1 outline-white/10" />
+                                <img src="{{ asset('/images/default-profile.jpg') }}" alt=""
+                                    class="size-12 rounded-full outline -outline-offset-1 object-cover object-top outline-white/10" />
                             </button>
 
-                            <el-menu anchor="bottom" popover
-                                class="w-48 origin-top-right rounded-md bg-white py-1 shadow-lg outline-1 outline-black/5 transition transition-discrete [--anchor-gap:--spacing(2)] data-closed:scale-95 data-closed:transform data-closed:opacity-0 data-enter:duration-100 data-enter:ease-out data-leave:duration-75 data-leave:ease-in">
-                                <a href="#"
-                                    class="block px-4 py-2 text-sm text-gray-700 focus:bg-gray-100 focus:outline-hidden">Your
-                                    profile</a>
-                                <a href="#"
-                                    class="block px-4 py-2 text-sm text-gray-700 focus:bg-gray-100 focus:outline-hidden">Settings</a>
-                            </el-menu>
-                        </el-dropdown>
+                            <!-- Dropdown menu -->
+                            <div id="profile-dropdown"
+                                class="hidden absolute left-1/2 -translate-x-1/2 z-10 mt-3 w-60 origin-top rounded-md bg-white py-1 shadow-lg ring-opacity-5 focus:outline-none"
+                                role="menu">
+                                <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                                    role="menuitem">Your profile</a>
+                                <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                                    role="menuitem">Settings</a>
+                                <form method="POST" action="{{ route('logout') }}">
+                                    @csrf
+                                    <button type="submit"
+                                        class="block w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                                        role="menuitem">Sign out</button>
+                                </form>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="-mr-2 flex md:hidden">
                     <!-- Mobile menu button -->
-                    <button type="button" command="--toggle" commandfor="mobile-menu"
+                    <button type="button" id="mobile-menu-button"
                         class="relative inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-white/5 hover:text-white focus:outline-2 focus:outline-offset-2 focus:outline-indigo-500">
                         <span class="absolute -inset-0.5"></span>
                         <span class="sr-only">Open main menu</span>
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" data-slot="icon"
-                            aria-hidden="true" class="size-6 in-aria-expanded:hidden">
+                        <svg id="menu-open-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="1.5" data-slot="icon" aria-hidden="true" class="size-6">
                             <path d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" stroke-linecap="round"
                                 stroke-linejoin="round" />
                         </svg>
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" data-slot="icon"
-                            aria-hidden="true" class="size-6 not-in-aria-expanded:hidden">
+                        <svg id="menu-close-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="1.5" data-slot="icon" aria-hidden="true" class="size-6 hidden">
                             <path d="M6 18 18 6M6 6l12 12" stroke-linecap="round" stroke-linejoin="round" />
                         </svg>
                     </button>
@@ -84,41 +80,30 @@
             </div>
         </div>
 
-        <el-disclosure id="mobile-menu" hidden class="md:hidden absolute left-0 right-0 top-full mt-2 mx-5">
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="hidden md:hidden absolute left-0 right-0 top-full mt-2 mx-5">
             <div class="bg-gray-800 rounded-2xl shadow-lg overflow-hidden">
                 <div class="space-y-1 px-2 pt-2 pb-3 sm:px-3">
-                    <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-white/5 hover:text-white" -->
                     <a href="/employees"
-                        class="{{ request()->is('employees') ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-white/5 hover:text-white' }} block rounded-md px-3 py-2 text-base font-medium">Employees</a>
+                        class="{{ request()->is('employees') ? 'bg-white text-gray-900' : 'text-white' }} block rounded-md px-3 py-2 text-base font-medium">Employees</a>
                     <a href="/departments"
-                        class="{{ request()->is('departments') ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-white/5 hover:text-white' }} block rounded-md px-3 py-2 text-base font-medium">Departments</a>
+                        class="{{ request()->is('departments') ? 'bg-white text-gray-900' : 'text-white' }} block rounded-md px-3 py-2 text-base font-medium">Departments</a>
                     <a href="/attendances"
-                        class="{{ request()->is('attendances') ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-white/5 hover:text-white' }} block rounded-md px-3 py-2 text-base font-medium">Attendances</a>
+                        class="{{ request()->is('attendances') ? 'bg-white text-gray-900' : 'text-white' }} block rounded-md px-3 py-2 text-base font-medium">Attendances</a>
                     <a href="/positions"
-                        class="{{ request()->is('positions') ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-white/5 hover:text-white' }} block rounded-md px-3 py-2 text-base font-medium">Positions</a>
+                        class="{{ request()->is('positions') ? 'bg-white text-gray-900' : 'text-white' }} block rounded-md px-3 py-2 text-base font-medium">Positions</a>
                     <a href="/salaries"
-                        class="{{ request()->is('salaries') ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-white/5 hover:text-white' }} block rounded-md px-3 py-2 text-base font-medium">Salaries</a>
+                        class="{{ request()->is('salaries') ? 'bg-white text-gray-900' : 'text-white' }} block rounded-md px-3 py-2 text-base font-medium">Salaries</a>
                 </div>
                 <div class="border-t border-white/10 pt-4 pb-3">
                     <div class="flex items-center px-5">
                         <div class="shrink-0">
-                            <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-                                alt="" class="size-10 rounded-full outline -outline-offset-1 outline-white/10" />
-                        </div>
-                        <div class="ml-3">
-                            <div class="text-base/5 font-medium text-white">Tom Cook</div>
-                            <div class="text-sm font-medium text-gray-400">tom@example.com</div>
+                            <img src="{{ asset('/images/default-profile.jpg') }}" alt=""
+                                class="size-12 rounded-full outline -outline-offset-1 object-cover object-top outline-white/10" />
                         </div>
                         <button type="button"
                             class="relative ml-auto shrink-0 rounded-full p-1 text-gray-400 hover:text-white focus:outline-2 focus:outline-offset-2 focus:outline-indigo-500">
                             <span class="absolute -inset-1.5"></span>
-                            <span class="sr-only">View notifications</span>
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
-                                data-slot="icon" aria-hidden="true" class="size-6">
-                                <path
-                                    d="M14.857 17.082a23.848 23.848 0 0 0 5.454-1.31A8.967 8.967 0 0 1 18 9.75V9A6 6 0 0 0 6 9v.75a8.967 8.967 0 0 1-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 0 1-5.714 0m5.714 0a3 3 0 1 1-5.714 0"
-                                    stroke-linecap="round" stroke-linejoin="round" />
-                            </svg>
                         </button>
                     </div>
                     <div class="mt-3 space-y-1 px-2">
@@ -127,12 +112,148 @@
                             profile</a>
                         <a href="#"
                             class="block rounded-md px-3 py-2 text-base font-medium text-gray-400 hover:bg-white/5 hover:text-white">Settings</a>
-                        <a href="#"
-                            class="block rounded-md px-3 py-2 text-base font-medium text-gray-400 hover:bg-white/5 hover:text-white">Sign
-                            out</a>
+                        <form method="POST" action="{{ route('logout') }}">
+                            @csrf
+                            <button type="submit"
+                                class="block w-full text-left rounded-md px-3 py-2 text-base font-medium text-gray-400 hover:bg-white/5 hover:text-white">Sign
+                                out</button>
+                        </form>
                     </div>
                 </div>
             </div>
-        </el-disclosure>
+        </div>
     </nav>
 </div>
+<!-- Notification Toast - Create -->
+<div id="toast-success"
+    class="hidden fixed top-20 right-5 z-[9999] flex items-center w-full max-w-xs p-4 text-gray-500 bg-white rounded-lg shadow-lg border border-green-300"
+    role="alert">
+    <svg class="flex-shrink-0 w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 20 20"
+        xmlns="http://www.w3.org/2000/svg">
+        <path fill-rule="evenodd"
+            d="M16.707 5.293a1 1 0 00-1.414 0L9 11.586 6.707 9.293a1 1 0 10-1.414 1.414l3 3a1 1 0 001.414 0l7-7a1 1 0 000-1.414z"
+            clip-rule="evenodd"></path>
+    </svg>
+    <div class="ms-3 text-sm font-medium text-green-700" id="toast-message">
+        Data berhasil ditambahkan!
+    </div>
+    <button type="button"
+        class="ms-auto -mx-1.5 -my-1.5 bg-white text-gray-400 hover:text-gray-900 rounded-lg focus:ring-2 focus:ring-green-300 p-1.5 hover:bg-gray-100 inline-flex items-center justify-center h-8 w-8"
+        id="toast-close-btn">
+        <span class="sr-only">Close</span>
+        <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
+            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7 1 13" />
+        </svg>
+    </button>
+</div>
+<!-- Notification Toast - Delete -->
+<div id="toast-delete"
+    class="hidden fixed top-20 right-5 z-[9999] flex items-center w-full max-w-xs p-4 text-gray-500 bg-white rounded-lg shadow-lg border border-red-300"
+    role="alert">
+    <svg class="flex-shrink-0 w-5 h-5 text-red-500" fill="currentColor" viewBox="0 0 20 20"
+        xmlns="http://www.w3.org/2000/svg">
+        <path fill-rule="evenodd"
+            d="M8.257 3.099c.366-.446.958-.665 1.543-.53l6 1.333A1 1 0 0117 4.89V16a2 2 0 01-2 2H5a2 2 0 01-2-2V4.89a1 1 0 01.2-.59l6-1.333a1 1 0 01.957.132zM8 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm4 0a1 1 0 112 0v6a1 1 0 11-2 0V8z"
+            clip-rule="evenodd"></path>
+    </svg>
+    <div class="ms-3 text-sm font-medium text-red-700" id="toast-delete-message">
+        Data berhasil dihapus!
+    </div>
+    <button type="button"
+        class="ms-auto -mx-1.5 -my-1.5 bg-white text-gray-400 hover:text-gray-900 rounded-lg focus:ring-2 focus:ring-red-300 p-1.5 hover:bg-gray-100 inline-flex items-center justify-center h-8 w-8"
+        id="toast-delete-close-btn">
+        <span class="sr-only">Close</span>
+        <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
+            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7 1 13" />
+        </svg>
+    </button>
+</div>
+
+<script>
+    // Profile dropdown functionality
+    const profileButton = document.getElementById('profile-menu-button');
+    const profileDropdown = document.getElementById('profile-dropdown');
+
+    profileButton.addEventListener('click', function (e) {
+        e.stopPropagation();
+        profileDropdown.classList.toggle('hidden');
+    });
+
+    // Close dropdown when clicking outside
+    document.addEventListener('click', function (e) {
+        if (!profileButton.contains(e.target) && !profileDropdown.contains(e.target)) {
+            profileDropdown.classList.add('hidden');
+        }
+    });
+
+    // Mobile menu functionality
+    const mobileMenuButton = document.getElementById('mobile-menu-button');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const menuOpenIcon = document.getElementById('menu-open-icon');
+    const menuCloseIcon = document.getElementById('menu-close-icon');
+
+    mobileMenuButton.addEventListener('click', function () {
+        mobileMenu.classList.toggle('hidden');
+        menuOpenIcon.classList.toggle('hidden');
+        menuCloseIcon.classList.toggle('hidden');
+    });
+
+    function showToast(message = "Data berhasil ditambahkan!") {
+        const toast = document.getElementById("toast-success");
+        const toastMsg = document.getElementById("toast-message");
+        const closeBtn = document.getElementById("toast-close-btn");
+
+        toastMsg.textContent = message;
+        toast.classList.remove("hidden");
+        toast.classList.add("flex");
+
+        // Auto-hide after 3 seconds
+        setTimeout(() => {
+            toast.classList.add("hidden");
+            toast.classList.remove("flex");
+        }, 3000);
+
+        // Close button
+        closeBtn.addEventListener("click", () => {
+            toast.classList.add("hidden");
+            toast.classList.remove("flex");
+        });
+    }
+
+    function showDeleteToast(message = "Data berhasil dihapus!") {
+        const toast = document.getElementById("toast-delete");
+        const toastMsg = document.getElementById("toast-delete-message");
+        const closeBtn = document.getElementById("toast-delete-close-btn");
+
+        toastMsg.textContent = message;
+        toast.classList.remove("hidden");
+        toast.classList.add("flex");
+
+        // Auto-hide setelah 3 detik
+        setTimeout(() => {
+            toast.classList.add("hidden");
+            toast.classList.remove("flex");
+        }, 3000);
+
+        // Tombol close
+        closeBtn.addEventListener("click", () => {
+            toast.classList.add("hidden");
+            toast.classList.remove("flex");
+        });
+    }
+
+    // === Cek dari session Laravel ===
+    @if (session('success'))
+        document.addEventListener("DOMContentLoaded", () => {
+            showToast("{{ session('success') }}");
+        });
+    @endif
+
+    @if (session('deleted'))
+        document.addEventListener("DOMContentLoaded", () => {
+            showDeleteToast("{{ session('deleted') }}");
+        });
+    @endif
+</script>

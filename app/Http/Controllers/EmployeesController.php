@@ -34,7 +34,7 @@ class EmployeesController extends Controller
             'status' => 'required|string|max:50',
         ]);
         Employee::create($request->all());
-        return redirect()->route('employees.index');
+        return redirect()->route('employees.index')->with('success', 'Employee created successfully.');
     }
 
     public function show(string $id)
@@ -84,6 +84,6 @@ class EmployeesController extends Controller
     {
         $employee = Employee::find($id);
         $employee->delete();
-        return redirect()->route('employees.index');
+        return redirect()->route('employees.index')->with('success', 'Employee deleted successfully');
     }
 }

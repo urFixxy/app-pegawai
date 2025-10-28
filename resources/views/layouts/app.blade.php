@@ -10,11 +10,51 @@
         integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindplus/elements@1" type="module"></script>
     <style>
         body {
             font-family: 'Inter', sans-serif;
         }
     </style>
+    <!-- NProgress -->
+    <link rel="stylesheet" href="https://unpkg.com/nprogress@0.2.0/nprogress.css" />
+    <script src="https://unpkg.com/nprogress@0.2.0/nprogress.js"></script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            NProgress.configure({
+                showSpinner: false,
+                speed: 400,
+                minimum: 0.1
+            });
+
+            document.querySelectorAll("a[href]").forEach(link => {
+                link.addEventListener("click", e => {
+                    const href = link.getAttribute("href");
+
+                    if (
+                        !href ||
+                        href.startsWith("#") ||
+                        href.startsWith("javascript:") ||
+                        link.target === "_blank" ||
+                        href === window.location.href
+                    ) return;
+
+                    e.preventDefault();
+
+                    NProgress.start();
+
+                    setTimeout(() => {
+                        window.location = href;
+                    }, 500);
+                });
+            });
+
+            window.addEventListener("pageshow", () => {
+                NProgress.done();
+            });
+        });
+    </script>
 </head>
 
 <body class="h-full">
@@ -31,6 +71,10 @@
             </div>
         </header>
 
+        <div id="page-transition">
+            <div class="spinner"></div>
+        </div>
+
         {{-- Main Content --}}
         <main>
             <div class="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
@@ -42,7 +86,6 @@
     {{-- Footer --}}
     @include('components.footer')
 
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindplus/elements@1" type="module"></script>
 </body>
 
 </html>
