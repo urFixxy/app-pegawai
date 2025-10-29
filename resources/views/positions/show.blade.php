@@ -10,7 +10,7 @@
     <div class="max-w-4xl mx-auto">
         <h1 class="text-2xl font-bold mb-4 text-gray-800">Position's Detail</h1>
 
-        <div class="bg-white shadow rounded-xl overflow-hidden border border-gray-200">
+        <div class="bg-white shadow-lg rounded-xl overflow-hidden border border-gray-200">
             <dl class="divide-y divide-gray-200">
                 <div class="px-6 py-4 grid grid-cols-3 gap-4">
                     <dt class="text-sm font-medium text-gray-500">Position Name</dt>

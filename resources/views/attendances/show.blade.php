@@ -3,15 +3,21 @@
 @section('title', $title)
 
 @section('header')
+    <i class="fa-solid fa-calendar-check mr-2"></i>
     {{ $title }}
 @endsection
 
 @section('content')
     <div class="max-w-4xl mx-auto">
-        <h1 class="text-2xl font-bold mb-4 text-gray-800">Attendance Detail</h1>
+        <h1 class="text-2xl font-bold mb-4 text-gray-800">Attendance's Detail</h1>
 
-        <div class="bg-white shadow rounded-xl overflow-hidden border border-gray-200">
+        <div class="bg-white shadow-lg rounded-xl overflow-hidden border border-gray-200">
             <dl class="divide-y divide-gray-200">
+                <div class="px-6 py-4 grid grid-cols-3 gap-4">
+                    <dt class="text-sm font-medium text-gray-500">Full Name</dt>
+                    <dd class="text-sm text-gray-900 col-span-2">{{ $attendance->employee->nama_lengkap }}</dd>
+                </div>
+
                 <div class="px-6 py-4 grid grid-cols-3 gap-4">
                     <dt class="text-sm font-medium text-gray-500">Employee ID</dt>
                     <dd class="text-sm text-gray-900 col-span-2">{{ $attendance->karyawan_id }}</dd>

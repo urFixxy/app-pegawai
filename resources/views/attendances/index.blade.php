@@ -10,19 +10,23 @@
 @section('content')
     <div class="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
         <div class="flex items-center justify-between mb-4">
-            @include('components.search-bar')
+            @include('components.search-bar', [
+            'action' => route('attendances.index'),
+            'name' => 'search',
+            'clearUrl' => route('attendances.index')
+            ])
             <!-- <h1 class="text-xl font-bold tracking-tight text-gray-900">List Attendances</h1> -->
             <a href="{{ route('attendances.create') }}"
                 class="inline-flex items-center space-x-2 px-4 py-2 bg-indigo-600 text-white text-sm font-medium rounded-md shadow hover:bg-indigo-500">
                 <i class="fa-solid fa-plus"></i>
             </a>
         </div>
-        <div class="overflow-auto shadow sm:rounded-lg">
+        <div class="overflow-auto shadow-lg sm:rounded-lg">
             <table class="min-w-full divide-y divide-gray-300">
                 <thead class="bg-gray-50">
                     <tr>
                         <th scope="col" class="px-3 py-3.5 text-center text-sm font-semibold text-gray-900">
-                            Employee ID</th>
+                            Name</th>
                         <th scope="col" class="px-3 py-3.5 text-center text-sm font-semibold text-gray-900">Date</th>
                         <th scope="col" class="px-3 py-3.5 text-center text-sm font-semibold text-gray-900">Check In Time
                         </th>
@@ -36,13 +40,13 @@
                     @foreach($attendance as $item)
                         <tr>
                             <td class="whitespace-nowrap px-3 py-4 text-sm font-md text-gray-900 text-center">
-                                {{ $item->karyawan_id }}
+                                {{ $item->employee->nama_lengkap }}
                             </td>
                             <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500 text-center">
                                 {{ $item->tanggal }}
                             </td>
                             <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500 text-center">
-                                {{ $item->waktu_masuk }}
+                                {{ $item->waktu_masuk ?? '-' }}
                             </td>
                             <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500 text-center">
                                 {{ $item->waktu_keluar ?? '-' }}

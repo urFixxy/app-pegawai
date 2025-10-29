@@ -3,6 +3,7 @@
 @section('title', $title)
 
 @section('header')
+    <i class="fa-solid fa-users mr-2"></i>
     {{ $title }}
 @endsection
 
@@ -10,7 +11,7 @@
     <div class="max-w-4xl mx-auto">
         <h1 class="text-2xl font-bold mb-4 text-gray-800">Employee's Detail</h1>
 
-        <div class="bg-white shadow rounded-xl overflow-hidden border border-gray-200">
+        <div class="bg-white shadow-lg rounded-xl overflow-hidden border border-gray-200">
             <dl class="divide-y divide-gray-200">
                 <div class="px-6 py-4 grid grid-cols-3 gap-4">
                     <dt class="text-sm font-medium text-gray-500">ID</dt>
@@ -30,7 +31,8 @@
                 </div>
                 <div class="px-6 py-4 grid grid-cols-3 gap-4">
                     <dt class="text-sm font-medium text-gray-500">Date of Birth</dt>
-                    <dd class="text-sm text-gray-900 col-span-2">{{ \Carbon\Carbon::parse($employee->tanggal_lahir)->format('d F Y') }}</dd>
+                    <dd class="text-sm text-gray-900 col-span-2">
+                        {{ \Carbon\Carbon::parse($employee->tanggal_lahir)->format('d F Y') }}</dd>
                 </div>
                 <div class="px-6 py-4 grid grid-cols-3 gap-4">
                     <dt class="text-sm font-medium text-gray-500">Address</dt>
@@ -38,7 +40,8 @@
                 </div>
                 <div class="px-6 py-4 grid grid-cols-3 gap-4">
                     <dt class="text-sm font-medium text-gray-500">Entry Date</dt>
-                    <dd class="text-sm text-gray-900 col-span-2">{{ \Carbon\Carbon::parse($employee->tanggal_masuk)->format('d F Y') }}</dd>
+                    <dd class="text-sm text-gray-900 col-span-2">
+                        {{ \Carbon\Carbon::parse($employee->tanggal_masuk)->format('d F Y') }}</dd>
                 </div>
                 <div class="px-6 py-4 grid grid-cols-3 gap-4">
                     <dt class="text-sm font-medium text-gray-500">Department</dt>
@@ -51,8 +54,9 @@
                 <div class="px-6 py-4 grid grid-cols-3 gap-4">
                     <dt class="text-sm font-medium text-gray-500">Status</dt>
                     <dd class="text-sm text-gray-900 col-span-2">
-                        <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium
-                            {{ $employee->status == 'Aktif' ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800' }}">
+                        <span
+                            class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium
+                                {{ $employee->status == 'Aktif' ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800' }}">
                             {{ $employee->status }}
                         </span>
                     </dd>

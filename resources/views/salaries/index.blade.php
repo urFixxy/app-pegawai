@@ -17,7 +17,7 @@
                 <i class="fa-solid fa-plus"></i>
             </a>
         </div>
-        <div class="overflow-auto shadow sm:rounded-lg">
+        <div class="overflow-auto shadow-lg sm:rounded-lg">
             <table class="min-w-full divide-y divide-gray-300">
                 <thead class="bg-gray-50">
                     <tr>
@@ -34,7 +34,7 @@
                     @foreach($salary as $item)
                         <tr>
                             <td class="whitespace-nowrap px-3 py-4 text-sm font-medium text-gray-900 sm:pl-6 text-center">
-                                {{ $item->karyawan_id }}
+                                {{ $item->employee->nama_lengkap }}
                             </td>
                             <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500 text-center">
                                 {{ $item->bulan }}

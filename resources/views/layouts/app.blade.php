@@ -46,7 +46,7 @@
 
                     setTimeout(() => {
                         window.location = href;
-                    }, 500);
+                    }, 10);
                 });
             });
 

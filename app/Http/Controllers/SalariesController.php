@@ -9,8 +9,17 @@ class SalariesController extends Controller
 {
     public function index()
     {
-        $salary = Salary::latest()->paginate(5);
         $title = 'Salaries';
+        $search = request()->query('search');
+        $salary = Salary::with('employee')
+            ->when($search, function ($query, $search) {
+                return $query->whereHas('employee', function ($q) use ($search) {
+                    $q->where('nama_lengkap', 'like', "%{$search}%");
+                });
+            })
+            ->latest()
+            ->paginate(5)
+            ->withQueryString();
         return view('salaries.index', compact('salary', 'title'));
     }
 

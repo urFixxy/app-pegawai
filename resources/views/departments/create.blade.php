@@ -3,12 +3,13 @@
 @section('title', $title)
 
 @section('header')
+    <i class="fa-solid fa-landmark mr-2"></i>
     {{ $title }}
 @endsection
 
 @section('content')
     <div class="mx-auto max-w-2xl px-4 py-6 sm:px-6 lg:px-8">
-        <form action="{{ route('departments.store') }}" method="POST">
+        <form action="{{ route('departments.store') }}" method="POST" class="bg-white p-3 rounded shadow-lg">
             @csrf
             <div class="space-y-12">
                 <div class="border-b border-gray-900/10 pb-12">

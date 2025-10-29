@@ -9,8 +9,18 @@ class EmployeesController extends Controller
 {
     public function index()
     {
-        $employee = Employee::latest()->paginate(5);
         $title = 'Employees';
+        $search = request()->query('search');
+        $employee = Employee::query()
+            ->when($search, function ($query, $search) {
+                return $query->where('nama_lengkap', 'like', "%{$search}%")
+                    ->orWhere('email', 'like', "%{$search}%")
+                    ->orWhere('nomor_telepon', 'like', "%{$search}%")
+                    ->orWhere('alamat', 'like', "%{$search}%");
+            })
+            ->orderBy('created_at', 'desc')
+            ->paginate(5)
+            ->withQueryString();
         return view('employees.index', compact('employee', 'title'));
     }
 

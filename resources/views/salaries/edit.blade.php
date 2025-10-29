@@ -3,6 +3,7 @@
 @section('title', $title)
 
 @section('header')
+    <i class="fa-solid fa-sack-dollar"></i>
     {{ $title }}
 @endsection
 

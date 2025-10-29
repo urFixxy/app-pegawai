@@ -10,14 +10,18 @@
 @section('content')
     <div class="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
         <div class="flex items-center justify-between mb-4">
-            @include('components.search-bar')
+            @include('components.search-bar', [
+            'action' => route('departments.index'),
+            'name' => 'search',
+            'clearUrl' => route('departments.index')
+            ])
             <!-- <h1 class="text-xl font-bold tracking-tight text-gray-900">List Departments</h1> -->
             <a href="{{ route('departments.create') }}"
                 class="inline-flex items-center space-x-2 px-4 py-2 bg-indigo-600 text-white text-sm font-medium rounded-md shadow hover:bg-indigo-500">
                 <i class="fa-solid fa-plus"></i>
             </a>
         </div>
-        <div class="overflow-hidden shadow sm:rounded-lg">
+        <div class="overflow-hidden shadow-lg sm:rounded-lg">
             <table class="min-w-full divide-y divide-gray-300">
                 <thead class="bg-gray-50">
                     <tr>

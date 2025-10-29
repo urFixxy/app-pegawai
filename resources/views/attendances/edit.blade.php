@@ -3,6 +3,7 @@
 @section('title', $title)
 
 @section('header')
+    <i class="fa-solid fa-calendar-check mr-2"></i>
     {{ $title }}
 @endsection
 

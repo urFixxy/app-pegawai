@@ -17,7 +17,7 @@
                 <i class="fa-solid fa-plus"></i>
             </a>
         </div>
-        <div class="overflow-auto shadow sm:rounded-lg">
+        <div class="overflow-auto shadow-lg sm:rounded-lg">
             <table class="min-w-full divide-y divide-gray-300">
                 <thead class="bg-gray-50">
                     <tr>
