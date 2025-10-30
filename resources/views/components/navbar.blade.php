@@ -4,17 +4,17 @@
         <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div class="flex h-16 items-center justify-between">
                 <div class="shrink-0">
-                    <svg fill="#6366f1" height="30px" width="30px" version="1.1" id="Layer_1"
-                        xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-                        viewBox="-271 290.1 256 220.9" xml:space="preserve" stroke="white">
-                        <g id="SVGRepo_bgCarrier" stroke-width="30"></g>
-                        <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
-                        <g id="SVGRepo_iconCarrier">
-                            <path
-                                d="M-15.1,341.2c-1.1,24.9-18.5,58.9-52.2,102.1c-34.8,45.2-64.3,67.7-88.4,67.7c-14.9,0-27.5-13.7-37.8-41.3 c-6.9-25.3-13.8-50.5-20.7-75.7c-7.7-27.6-15.9-41.3-24.7-41.3c-1.9,0-8.6,4-20.1,12.1l-12-15.5c12.6-11.1,25-22.2,37.3-33.2 c16.8-14.6,29.4-22.2,37.9-23c19.9-1.9,32.1,11.7,36.7,40.7c4.9,31.4,8.4,50.9,10.3,58.5c5.7,26,12,39,18.9,39 c5.3,0,13.4-8.4,24.1-25.2c10.7-16.8,16.4-29.6,17.2-38.5c1.5-14.5-4.2-21.8-17.2-21.8c-6.1,0-12.4,1.3-18.9,4 c12.6-40.9,36.7-60.8,72.3-59.7C-25.9,291-13.5,308-15.1,341.2z">
-                            </path>
-                        </g>
-                    </svg>
+                        <svg fill="#6366f1" height="30px" width="30px" version="1.1" id="Layer_1"
+                            xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                            viewBox="-271 290.1 256 220.9" xml:space="preserve" stroke="white">
+                            <g id="SVGRepo_bgCarrier" stroke-width="30"></g>
+                            <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                            <g id="SVGRepo_iconCarrier">
+                                <path
+                                    d="M-15.1,341.2c-1.1,24.9-18.5,58.9-52.2,102.1c-34.8,45.2-64.3,67.7-88.4,67.7c-14.9,0-27.5-13.7-37.8-41.3 c-6.9-25.3-13.8-50.5-20.7-75.7c-7.7-27.6-15.9-41.3-24.7-41.3c-1.9,0-8.6,4-20.1,12.1l-12-15.5c12.6-11.1,25-22.2,37.3-33.2 c16.8-14.6,29.4-22.2,37.9-23c19.9-1.9,32.1,11.7,36.7,40.7c4.9,31.4,8.4,50.9,10.3,58.5c5.7,26,12,39,18.9,39 c5.3,0,13.4-8.4,24.1-25.2c10.7-16.8,16.4-29.6,17.2-38.5c1.5-14.5-4.2-21.8-17.2-21.8c-6.1,0-12.4,1.3-18.9,4 c12.6-40.9,36.7-60.8,72.3-59.7C-25.9,291-13.5,308-15.1,341.2z">
+                                </path>
+                            </g>
+                        </svg>
                 </div>
                 <div class="hidden md:block">
                     <div class="ml-10 flex items-baseline space-x-1">

@@ -43,11 +43,11 @@
                             <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500 text-center">
                                 {{ $item->gaji_pokok }}
                             </td>
-                            <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500 text-center">
-                                {{ $item->tunjangan }}
+                            <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500 text-center text-green-600">
+                                + Rp {{ $item->tunjangan }}
                             </td>
-                            <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500 text-center">
-                                {{ $item->potongan }}
+                            <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500 text-center text-red-600">
+                                - Rp {{ $item->potongan }}
                             </td>
                             <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500 text-center">
                                 {{ $item->total_gaji }}

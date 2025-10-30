@@ -60,14 +60,6 @@
                         </span>
                     </dd>
                 </div>
-                <div class="px-6 py-4 grid grid-cols-3 gap-4">
-                    <dt class="text-sm font-medium text-gray-500">Created At</dt>
-                    <dd class="text-sm text-gray-900 col-span-2">{{ $employee->created_at }}</dd>
-                </div>
-                <div class="px-6 py-4 grid grid-cols-3 gap-4">
-                    <dt class="text-sm font-medium text-gray-500">Updated At</dt>
-                    <dd class="text-sm text-gray-900 col-span-2">{{ $employee->updated_at }}</dd>
-                </div>
             </dl>
         </div>
 
