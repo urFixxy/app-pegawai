@@ -9,8 +9,16 @@ class PositionsController extends Controller
 {
     public function index()
     {
-        $position = Position::latest()->paginate(5);
         $title = 'Positions';
+        $search = request()->query('search');
+        $position = Position::query()
+            ->when($search, function ($query, $search) {
+                return $query->where('nama_jabatan', 'like', "%{$search}%")
+                    ->orWhere('gaji_pokok', 'like', "%{$search}%");
+            })
+            ->latest()
+            ->paginate(5)
+            ->withQueryString();
         return view('positions.index', compact('position', 'title'));
     }
 

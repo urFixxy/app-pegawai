@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Employee;
+use App\Models\Department;
+use App\Models\Position;
 
 class EmployeesController extends Controller
 {
@@ -27,7 +29,9 @@ class EmployeesController extends Controller
     public function create()
     {
         $title = 'Employees';
-        return view('employees.create', compact('title'));
+        $departments = Department::orderBy('id')->get();
+        $positions = Position::orderBy('id')->get();
+        return view('employees.create', compact('title', 'departments', 'positions'));
     }
 
     public function store(Request $request)
@@ -58,7 +62,9 @@ class EmployeesController extends Controller
     {
         $employee = Employee::findOrFail($id);
         $title = 'Employees';
-        return view('employees.edit', compact('employee', 'title'));
+        $departments = Department::orderBy('id')->get();
+        $positions = Position::orderBy('id')->get();
+        return view('employees.edit', compact('employee', 'title', 'departments', 'positions'));
     }
 
     public function update(Request $request, string $id)

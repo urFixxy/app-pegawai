@@ -10,7 +10,11 @@
 @section('content')
     <div class="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
         <div class="flex items-center justify-between mb-4">
-            @include('components.search-bar')
+            @include('components.search-bar', [
+                'action' => route('positions.index'),
+                'name' => 'search',
+                'clearUrl' => route('positions.index')
+            ])
             <!-- <h1 class="text-xl font-bold tracking-tight text-gray-900">List Positions</h1> -->
             <a href="{{ route('positions.create') }}"
                 class="inline-flex items-center space-x-2 px-4 py-2 bg-indigo-600 text-white text-sm font-medium rounded-md shadow hover:bg-indigo-500">
@@ -21,21 +25,22 @@
             <table class="min-w-full divide-y divide-gray-300">
                 <thead class="bg-gray-50">
                     <tr>
-                        <th scope="col" class="py-3.5 pl-4 pr-3 text-center text-sm font-semibold text-gray-900 sm:pl-6">
+                        <th scope="col" class="px-3 py-3.5 text-center text-sm font-semibold text-gray-900">
                             Position</th>
                         <th scope="col" class="px-3 py-3.5 text-center text-sm font-semibold text-gray-900">Salary</th>
                         <th scope="col" class="px-3 py-3.5 text-center text-sm font-semibold text-gray-900">Action</th>
                     </tr>
                 </thead>
                 <tbody class="divide-y divide-gray-200 bg-white">
+                    @if($position->isNotEmpty())
                     @foreach($position as $item)
                         <tr>
-                            <td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6 text-center">
+                            <td class="whitespace-nowrap px-3 py-4 text-sm font-medium text-gray-900 sm:pl-6 text-center">
                                 {{ $item->nama_jabatan }}
                             </td>
                             <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500 text-center">
                                 {{ $item->gaji_pokok }}
-                            <td class="relative whitespace-nowrap py-4 pl-3 pr-4 text-center text-sm font-medium sm:pr-6">
+                            <td class="relative whitespace-nowrap px-3 py-4 text-center text-sm font-medium sm:pr-6">
                                 <div class="flex items-center justify-center gap-2">
                                     <a href="{{ route('positions.show', $item->id) }}"
                                         class="text-indigo-600 hover:text-indigo-900" title="Detail">
@@ -56,7 +61,17 @@
                                 </div>
                             </td>
                         </tr>
-                    @endforeach
+                        @endforeach
+                    @else
+                        <tr>
+                            <td colspan="8" class="py-10 text-center text-gray-500">
+                                <div class="flex flex-col items-center justify-center">
+                                    <i class="fa-solid fa-box-open text-4xl text-gray-400 mb-2"></i>
+                                    <p class="text-sm italic">No data available.</p>
+                                </div>
+                            </td>
+                        </tr>
+                    @endif
                 </tbody>
             </table>
         </div>

@@ -21,7 +21,7 @@
             <table class="min-w-full divide-y divide-gray-300">
                 <thead class="bg-gray-50">
                     <tr>
-                        <th scope="col" class="px-3 py-3.5 text-center text-sm font-semibold text-gray-900 sm:pl-6">Employee ID</th>
+                        <th scope="col" class="px-3 py-3.5 text-center text-sm font-semibold text-gray-900 sm:pl-6">Employee Name</th>
                         <th scope="col" class="px-3 py-3.5 text-center text-sm font-semibold text-gray-900">Month</th>
                         <th scope="col" class="px-3 py-3.5 text-center text-sm font-semibold text-gray-900">Basic Salary</th>
                         <th scope="col" class="px-3 py-3.5 text-center text-sm font-semibold text-gray-900">Allowance</th>
@@ -31,6 +31,7 @@
                     </tr>
                 </thead>
                 <tbody class="divide-y divide-gray-200 bg-white">
+                    @if($salary->isNotEmpty())
                     @foreach($salary as $item)
                         <tr>
                             <td class="whitespace-nowrap px-3 py-4 text-sm font-medium text-gray-900 sm:pl-6 text-center">
@@ -73,6 +74,16 @@
                             </td>
                         </tr>
                     @endforeach
+                    @else
+                        <tr>
+                            <td colspan="7" class="py-10 text-center text-gray-500">
+                                <div class="flex flex-col items-center justify-center">
+                                    <i class="fa-solid fa-box-open text-4xl text-gray-400 mb-2"></i>
+                                    <p class="text-sm italic">No data available.</p>
+                                </div>
+                            </td>
+                        </tr>
+                    @endif
                 </tbody>
             </table>
         </div>

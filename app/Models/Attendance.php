@@ -23,21 +23,4 @@ class Attendance extends Model
     {
         return $this->belongsTo(Employee::class, 'karyawan_id');
     }
-
-    // Accessor untuk format tanggal Indonesia
-    public function getFormattedTanggalAttribute()
-    {
-        return $this->tanggal->format('d/m/Y');
-    }
-
-    // Accessor untuk status badge color
-    public function getStatusColorAttribute()
-    {
-        return [
-            'hadir' => 'green',
-            'izin' => 'blue',
-            'sakit' => 'yellow',
-            'alpha' => 'red',
-        ][$this->status_absensi] ?? 'gray';
-    }
 }

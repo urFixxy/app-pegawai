@@ -26,7 +26,7 @@
                 <thead class="bg-gray-50">
                     <tr>
                         <th scope="col" class="px-3 py-3.5 text-center text-sm font-semibold text-gray-900">
-                            Name</th>
+                            Employee Name</th>
                         <th scope="col" class="px-3 py-3.5 text-center text-sm font-semibold text-gray-900">Date</th>
                         <th scope="col" class="px-3 py-3.5 text-center text-sm font-semibold text-gray-900">Check In Time
                         </th>
@@ -37,13 +37,14 @@
                     </tr>
                 </thead>
                 <tbody class="divide-y divide-gray-200 bg-white">
-                    @foreach($attendance as $item)
+                    @if($attendance->isNotEmpty())
+                        @foreach($attendance as $item)
                         <tr>
                             <td class="whitespace-nowrap px-3 py-4 text-sm font-md text-gray-900 text-center">
                                 {{ $item->employee->nama_lengkap }}
                             </td>
                             <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500 text-center">
-                                {{ $item->tanggal }}
+                                {{ \Carbon\Carbon::parse($item->tanggal)->format('Y-m-d') }}
                             </td>
                             <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500 text-center">
                                 {{ $item->waktu_masuk ?? '-' }}
@@ -51,8 +52,15 @@
                             <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500 text-center">
                                 {{ $item->waktu_keluar ?? '-' }}
                             </td>
-                            <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500 text-center">
-                                {{ $item->status_absensi }}
+                            <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500 text-center ">
+                                <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full
+                                    @if($item->status_absensi == 'hadir') bg-green-100 text-green-800
+                                    @elseif($item->status_absensi == 'izin') bg-yellow-100 text-yellow-800
+                                    @elseif($item->status_absensi == 'sakit') bg-blue-100 text-blue-800
+                                    @elseif($item->status_absensi == 'alpha') bg-red-100 text-red-800
+                                    @else bg-gray-100 text-gray-800 @endif">
+                                {{ $item->status_absensi  }}
+                                </span>
                             </td>
                             <td class="relative whitespace-nowrap px-3 py-4 text-sm font-medium text-center">
                                 <div class="flex items-center justify-center gap-2">
@@ -72,7 +80,17 @@
                                 </div>
                             </td>
                         </tr>
-                    @endforeach
+                        @endforeach
+                    @else
+                        <tr>
+                            <td colspan="6" class="py-10 text-center text-gray-500">
+                                <div class="flex flex-col items-center justify-center">
+                                    <i class="fa-solid fa-box-open text-4xl text-gray-400 mb-2"></i>
+                                    <p class="text-sm italic">No data available.</p>
+                                </div>
+                            </td>
+                        </tr>
+                    @endif
                 </tbody>
             </table>
         </div>

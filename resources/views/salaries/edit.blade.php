@@ -80,13 +80,16 @@
             </div>
         </div>
 
-        <div class="mt-3 flex items-center justify-end gap-x-6">
-            <a href="{{ route('salaries.index') }}" class="text-sm font-semibold leading-6 text-gray-900">Cancel</a>
-            <button type="submit" class="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm
+        <div class="mt-6 flex items-center justify-between">
+                <a href="{{ route('salaries.index') }}"
+                    class="px-4 py-2 bg-gray-200 text-gray-700 text-sm font-medium rounded-md shadow hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500">
+                    <i class="fa-solid fa-arrow-left mr-1"></i> Cancel
+                </a>
+                <button type="submit" class="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm
                     hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2
                     focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
-                Update
-            </button>
-        </div>
+                    <i class="fa-solid fa-save mr-1"></i> Update
+                </button>
+            </div>
     </form>
 @endsection
