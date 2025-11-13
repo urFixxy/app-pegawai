@@ -41,7 +41,7 @@
                     @if ($employee->isNotEmpty())
                         @foreach ($employee as $item)
                             <tr>
-                                <td class="whitespace-nowrap py-4 text-sm font-medium text-gray-900 text-center">
+                                <td class="whitespace-nowrap px-3 py-4 text-sm font-medium text-gray-900 text-center">
                                     {{ $item->nama_lengkap }}
                                 </td>
                                 <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500 text-center">
@@ -53,7 +53,7 @@
                                 <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500 text-center">
                                     {{ \Carbon\Carbon::parse($item->tanggal_lahir)->format('d-m-Y') }}
                                 </td>
-                                <td class="px-3 py-4 text-sm text-gray-500 text-center">
+                                <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500 text-center">
                                     {{ Str::limit($item->alamat, 30) }}
                                 </td>
                                 <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500 text-center">
@@ -65,7 +65,7 @@
                                         {{ $item->status }}
                                     </span>
                                 </td>
-                                <td class="whitespace-nowrap py-4 text-sm text-center">
+                                <td class="whitespace-nowrap px-3 py-4 text-sm text-center">
                                     <div class="flex items-center justify-center gap-2">
                                         <a href="{{ route('employees.show', $item->id) }}"
                                            class="text-indigo-600 hover:text-indigo-900" title="Detail">
