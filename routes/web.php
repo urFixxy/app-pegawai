@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\DashboardController;   
 use App\Http\Controllers\EmployeesController;
 use App\Http\Controllers\DepartmentsController;
 use App\Http\Controllers\AttendancesController;
@@ -19,6 +20,7 @@ Route::post('/register', [AuthController::class, 'register']);
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
 Route::middleware(['auth'])->group(function () {
+    Route::resource('dashboard', DashboardController::class);
     Route::resource('employees', EmployeesController::class);
     Route::resource('departments', DepartmentsController::class);
     Route::resource('attendances', AttendancesController::class);

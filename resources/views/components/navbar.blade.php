@@ -18,7 +18,9 @@
                 </div>
                 <div class="hidden md:block">
                     <div class="ml-10 flex items-baseline space-x-1">
-                        <a href="/employees" aria-current="page"
+                        <a href="/dashboard" aria-current="page"
+                            class="{{ request()->is('dashboard*') ? 'bg-white text-gray-900' : 'text-white'}} rounded-full  px-3 py-2 text-sm">Dashboard</a>
+                        <a href="/employees"
                             class="{{ request()->is('employees*') ? 'bg-white text-gray-900' : 'text-white'}} rounded-full  px-3 py-2 text-sm">Employees</a>
                         <a href="/departments"
                             class="{{ request()->is('departments*') ? 'bg-white text-gray-900' : 'text-white'}} rounded-full  px-3 py-2 text-sm">Departments</a>
