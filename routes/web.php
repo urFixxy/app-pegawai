@@ -8,6 +8,7 @@ use App\Http\Controllers\DepartmentsController;
 use App\Http\Controllers\AttendancesController;
 use App\Http\Controllers\PositionsController;
 use App\Http\Controllers\SalariesController;
+use App\Http\Controllers\LeaveController;
 
 Route::get('/', function () {
     return redirect()->route('login');
@@ -26,4 +27,5 @@ Route::middleware(['auth'])->group(function () {
     Route::resource('attendances', AttendancesController::class);
     Route::resource('positions', PositionsController::class);
     Route::resource('salaries', SalariesController::class);
+    Route::resource('leaves', LeaveController::class);
 });

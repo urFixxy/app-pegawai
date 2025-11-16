@@ -24,7 +24,7 @@
                     <div>
                         <label class="block text-sm font-medium text-gray-700 mb-1">Month</label>
                         <select name="month"
-                            class="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm px-3 py-2">
+                            class="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm p-2.5">
                             <option value="">All Month</option>
                             <option value="January" {{ request('month') == 'January' ? 'selected' : '' }}>January</option>
                             <option value="February" {{ request('month') == 'February' ? 'selected' : '' }}>February</option>
@@ -45,7 +45,7 @@
                     <div>
                         <label class="block text-sm font-medium text-gray-700 mb-1">Show</label>
                         <select name="per_page"
-                            class="w-full px-3 py-2 border border-gray-300 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                            class="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm p-2.5"
                             onchange="this.form.submit()">
                             <option value="5" {{ request('per_page', 5) == 5 ? 'selected' : '' }}>5</option>
                             <option value="10" {{ request('per_page') == 10 ? 'selected' : '' }}>10</option>

@@ -18,7 +18,7 @@
             </div>
 
             <!-- Desktop Navigation -->
-            <div class="hidden md:block">
+            <div class="hidden lg:block">
                 <div class="ml-10 flex items-baseline space-x-1">
                     <a href="/home" aria-current="page"
                         class="{{ request()->is('home*') ? 'bg-white/10 border-b-2 border-indigo-400 text-white' : 'text-gray-100 hover:bg-white/5' }} px-4 py-2 rounded-md text-sm font-medium transition-all duration-200">Home</a>
@@ -32,11 +32,13 @@
                         class="{{ request()->is('departments*') ? 'bg-white/10 border-b-2 border-indigo-400 text-white' : 'text-gray-100 hover:bg-white/5' }} px-4 py-2 rounded-md text-sm font-medium transition-all duration-200">Departments</a>
                     <a href="/positions"
                         class="{{ request()->is('positions*') ? 'bg-white/10 border-b-2 border-indigo-400 text-white' : 'text-gray-100 hover:bg-white/5' }} px-4 py-2 rounded-md text-sm font-medium transition-all duration-200">Positions</a>
+                    <a href="/leaves"
+                        class="{{ request()->is('leaves*') ? 'bg-white/10 border-b-2 border-indigo-400 text-white' : 'text-gray-100 hover:bg-white/5' }} px-4 py-2 rounded-md text-sm font-medium transition-all duration-200">Leaves</a>
                 </div>
             </div>
 
             <!-- Profile Dropdown (Desktop) -->
-            <div class="hidden md:block">
+            <div class="hidden lg:block">
                 <div class="ml-4 flex items-center md:ml-6">
                     <div class="relative ml-3">
                         <button id="profile-menu-button" type="button"
@@ -69,7 +71,7 @@
             </div>
 
             <!-- Mobile Menu Button -->
-            <div class="-mr-2 flex md:hidden">
+            <div class="-mr-2 flex lg:hidden">
                 <button type="button" id="mobile-menu-button"
                     class="relative inline-flex items-center justify-center rounded-md p-2 text-gray-300 hover:bg-white/10 hover:text-white focus:outline-2 focus:outline-offset-2 focus:outline-indigo-400 transition-colors">
                     <span class="sr-only">Open main menu</span>
@@ -88,7 +90,7 @@
     </div>
 
     <!-- Mobile Menu -->
-    <div id="mobile-menu" class="hidden md:hidden absolute left-0 right-0 top-full mt-2 mx-5">
+    <div id="mobile-menu" class="hidden lg:hidden absolute left-0 right-0 top-full mt-2 mx-5">
         <div
             class="bg-gradient-to-r from-gray-800 to-gray-600 rounded-2xl shadow-xl overflow-hidden border border-white/10">
             <div class="space-y-1 px-2 pt-2 pb-3 sm:px-3">
@@ -104,6 +106,8 @@
                     class="{{ request()->is('departments') ? 'bg-indigo-600 text-white' : 'text-gray-200 hover:bg-white/10' }} block rounded-lg px-3 py-2 text-base font-medium transition-all">Departments</a>
                 <a href="/positions"
                     class="{{ request()->is('positions') ? 'bg-indigo-600 text-white' : 'text-gray-200 hover:bg-white/10' }} block rounded-lg px-3 py-2 text-base font-medium transition-all">Positions</a>
+                <a href="/leaves"
+                    class="{{ request()->is('leaves') ? 'bg-indigo-600 text-white' : 'text-gray-200 hover:bg-white/10' }} block rounded-lg px-3 py-2 text-base font-medium transition-all">Leaves</a>
             </div>
             <div class="border-t border-white/10 pt-4 pb-3">
                 <div class="flex items-center px-5">
