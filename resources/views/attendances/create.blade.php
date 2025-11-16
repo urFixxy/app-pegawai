@@ -9,10 +9,9 @@
 
 @section('content')
     <div class="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
-        <h1 class="text-2xl font-bold mb-4 text-gray-800">Create Attendance</h1>
         <form action="{{ route('attendances.store') }}" method="POST" class="bg-white p-6 rounded shadow-lg">
             @csrf
-
+            <h1 class="text-2xl font-bold mb-4 text-gray-800">Create Attendance</h1>
             <!-- Alert Info -->
             <div class="mb-4 bg-blue-50 border-l-4 border-blue-400 p-4">
                 <div class="flex">

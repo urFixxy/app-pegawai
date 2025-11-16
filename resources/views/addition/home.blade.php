@@ -3,15 +3,15 @@
 @section('title', 'Dashboard')
 
 @section('header')
-    <i class="fa-solid fa-chart-line mr-2"></i>
-    Dashboard
+    <i class="fa-solid fa-home mr-2"></i>
+    Home
 @endsection
 
 @section('content')
-    <div class="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
+    <div class="mx-auto px-4 py-6 sm:px-6 lg:px-8">
         <!-- Welcome Section -->
         <div class="mb-6">
-            <h1 class="text-2xl font-bold text-gray-900">Welcome to HR Management System</h1>
+            <h1 class="text-2xl font-bold text-gray-900">Welcome to <span class="text-indigo-500 text-3xl">V</span></h1>
             <p class="mt-1 text-sm text-gray-600">Overview of your organization's data and statistics</p>
         </div>
 

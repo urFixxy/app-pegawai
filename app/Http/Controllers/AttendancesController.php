@@ -22,22 +22,23 @@ class AttendancesController extends Controller
               ->orWhere('status_absensi', 'like', '%' . $search . '%');
         }
 
-        // Filter by date range if needed
-        if ($request->has('date_from') && $request->date_from != '') {
-            $query->where('tanggal', '>=', $request->date_from);
-        }
-        if ($request->has('date_to') && $request->date_to != '') {
-            $query->where('tanggal', '<=', $request->date_to);
+        // Filter by date
+        if ($request->has('date') && $request->date != '') {
+            $query->where('tanggal', '=', $request->date);
         }
 
-        // Filter by status if needed
+        // Filter by status
         if ($request->has('status') && $request->status != '') {
             $query->where('status_absensi', $request->status);
         }
 
+        // Get per_page value
+        $perPage = $request->get('per_page', 5);
+
         $attendance = $query->latest('tanggal')
             ->latest('waktu_masuk')
-            ->paginate(10);
+            ->paginate($perPage)
+            ->appends($request->query());
 
         $title = 'Attendance';
         return view('attendances.index', compact('attendance', 'title'));

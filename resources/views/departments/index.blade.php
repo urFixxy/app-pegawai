@@ -8,7 +8,7 @@
 @endsection
 
 @section('content')
-    <div class="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
+    <div class="mx-auto px-4 py-6 sm:px-6 lg:px-8">
         <div class="flex items-center justify-between mb-4">
             @include('components.search-bar', [
                 'action' => route('departments.index'),
@@ -16,8 +16,8 @@
                 'clearUrl' => route('departments.index')
             ])
             <a href="{{ route('departments.create') }}"
-                class="inline-flex items-center space-x-2 px-4 py-2 bg-indigo-600 text-white text-sm font-medium rounded-md shadow hover:bg-indigo-500">
-                <i class="fa-solid fa-plus"></i>
+                class="inline-flex gap-2 items-center space-x-2 px-4 py-2 bg-indigo-600 text-white text-sm font-medium rounded-md shadow hover:bg-indigo-500">
+                Add Department<i class="fa-solid fa-plus"></i>
             </a>
         </div>
 

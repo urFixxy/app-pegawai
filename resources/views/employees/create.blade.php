@@ -9,11 +9,11 @@
 
 @section('content')
     <div class="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
-        <h1 class="text-2xl font-bold mb-4 text-gray-800">Create Employee</h1>
-        <form action="{{ route('employees.store') }}" method="POST" class="bg-white p-3 rounded shadow-lg">
+        <form action="{{ route('employees.store') }}" method="POST" class="bg-white p-6 rounded shadow-lg">
             @csrf
+            <h1 class="text-2xl font-bold mb-4 text-gray-800">Create Employee</h1>
             <div class="space-y-12">
-                <div class="border-b border-gray-900/10 pb-12">
+                <div class="pb-6">
                     <div class="mt-3 grid grid-cols-1 gap-x-6 gap-y-3 sm:grid-cols-2">
                         <div class="sm:col-span-1">
                             <label for="nama_lengkap" class="block text-sm font-medium leading-6 text-gray-900">Full

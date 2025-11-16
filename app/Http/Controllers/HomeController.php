@@ -8,7 +8,7 @@ use App\Models\Position;
 use App\Models\Attendance;
 use Carbon\Carbon;
 
-class DashboardController extends Controller
+class HomeController extends Controller
 {
     public function index()
     {
@@ -55,7 +55,7 @@ class DashboardController extends Controller
             ->limit(5)
             ->get();
         
-        return view('addition.dashboard', compact(
+        return view('addition.home', compact(
             'totalEmployees',
             'totalDepartments',
             'totalPositions',

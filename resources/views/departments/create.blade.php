@@ -9,11 +9,11 @@
 
 @section('content')
     <div class="mx-auto max-w-2xl px-4 py-6 sm:px-6 lg:px-8">
-        <h1 class="text-2xl font-bold mb-4 text-gray-800">Create Department</h1>
-        <form action="{{ route('departments.store') }}" method="POST" class="bg-white p-3 rounded shadow-lg">
+        <form action="{{ route('departments.store') }}" method="POST" class="bg-white p-6 rounded shadow-lg">
             @csrf
+            <h1 class="text-2xl font-bold mb-4 text-gray-800">Create Department</h1>
             <div class="space-y-12">
-                <div class="border-b border-gray-900/10 pb-12">
+                <div class="pb-6">
                     <div class="sm:col-span-1">
                         <label for="nama_department" class="block text-sm font-medium leading-6 text-gray-900">
                             Department Name
@@ -22,7 +22,7 @@
                             <input type="text" name="nama_department" id="nama_department" autocomplete="nama_department"
                                 class="block w-full p-2 rounded-md border-0 py-1.5 text-gray-900 shadow-sm
                                                ring-1 ring-inset ring-gray-300 placeholder:text-gray-400
-                                               focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                                               focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 focus:outline-none">
                         </div>
                     </div>
                 </div>

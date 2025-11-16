@@ -8,17 +8,16 @@
 @endsection
 
 @section('content')
-    <div class="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
+    <div class="mx-auto px-4 py-6 sm:px-6 lg:px-8">
         <div class="flex items-center justify-between mb-4">
             @include('components.search-bar', [
                 'action' => route('positions.index'),
                 'name' => 'search',
                 'clearUrl' => route('positions.index')
             ])
-            <!-- <h1 class="text-xl font-bold tracking-tight text-gray-900">List Positions</h1> -->
             <a href="{{ route('positions.create') }}"
-                class="inline-flex items-center space-x-2 px-4 py-2 bg-indigo-600 text-white text-sm font-medium rounded-md shadow hover:bg-indigo-500">
-                <i class="fa-solid fa-plus"></i>
+                class="inline-flex gap-2 items-center space-x-2 px-4 py-2 bg-indigo-600 text-white text-sm font-medium rounded-md shadow hover:bg-indigo-500">
+                Add Positions <i class="fa-solid fa-plus"></i>
             </a>
         </div>
         <div class="overflow-auto shadow-lg sm:rounded-lg">
@@ -38,8 +37,8 @@
                             <td class="whitespace-nowrap px-3 py-4 text-sm font-medium text-gray-900 sm:pl-6 text-center">
                                 {{ $item->nama_jabatan }}
                             </td>
-                            <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500 text-center">
-                                {{ $item->gaji_pokok }}
+                            <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500 text-center">Rp
+                                {{ $item->gaji_pokok ? number_format($item->gaji_pokok, 0, ',', '.') : '0' }}
                             <td class="relative whitespace-nowrap px-3 py-4 text-center text-sm font-medium sm:pr-6">
                                 <div class="flex items-center justify-center gap-2">
                                     <a href="{{ route('positions.show', $item->id) }}"

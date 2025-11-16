@@ -9,35 +9,34 @@
 
 @section('content')
     <div class="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
-        <h1 class="text-2xl font-bold mb-4 text-gray-800">Edit Attendance</h1>
         <form action="{{ route('attendances.update', $attendance->id) }}" method="POST"
-            class="bg-white p-3 rounded shadow-lg">
+            class="bg-white p-6 rounded shadow-lg">
             @csrf
+            <h1 class="text-2xl font-bold mb-4 text-gray-800">Edit Attendance</h1>
             @method('PUT')
 
             <div class="space-y-12">
-                <div class="border-b border-gray-900/10 pb-12">
+                <div class="pb-6">
                     <div class="mt-3 grid grid-cols-1 gap-x-6 gap-y-3 sm:grid-cols-2">
 
                         <div class="sm:col-span-1">
-                            <label for="karyawan_id" class="block text-sm font-medium leading-6 text-gray-900">
-                                Employee ID</label>
-                            <div class="mt-1">
-                                <input type="number" name="karyawan_id" id="karyawan_id"
-                                    value="{{ old('karyawan_id', $attendance->karyawan_id) }}" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm
-                                    ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2
-                                    focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 p-2" required>
+                            <label class="block text-sm font-medium text-gray-900 mb-2">
+                                Employee Name
+                            </label>
+                            <div class="block w-full p-2 rounded-md border text-sm border-gray-300 bg-gray-50 text-gray-700">
+                                {{ $attendance->employee->nama_lengkap }}
                             </div>
                         </div>
 
-                        <div class="sm:col-span-1">
+                        <div class="sm:col-span-1"> 
                             <label for="tanggal" class="block text-sm font-medium leading-6 text-gray-900">
                                 Date</label>
                             <div class="mt-1">
                                 <input id="tanggal" name="tanggal" type="date"
                                     value="{{ old('tanggal', $attendance->tanggal->format('Y-m-d')) }}" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm
-                                    ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2
-                                    focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 p-2" required>
+                                                ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-1
+                                                focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 p-2"
+                                    required>
                             </div>
                         </div>
 
@@ -47,8 +46,8 @@
                             <div class="mt-1">
                                 <input id="waktu_masuk" name="waktu_masuk" type="time"
                                     value="{{ old('waktu_masuk', $attendance->waktu_masuk) }}" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm
-                                    ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2
-                                    focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 p-2">
+                                                ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-1
+                                                focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 p-2">
                             </div>
                         </div>
 
@@ -58,8 +57,8 @@
                             <div class="mt-1">
                                 <input id="waktu_keluar" name="waktu_keluar" type="time"
                                     value="{{ old('waktu_keluar', $attendance->waktu_keluar) }}" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm
-                                    ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2
-                                    focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 p-2">
+                                                ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-1
+                                                focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 p-2">
                             </div>
                         </div>
 
@@ -67,9 +66,9 @@
                             <label for="status_absensi" class="block text-sm font-medium leading-6 text-gray-900">
                                 Attendance Status</label>
                             <div class="mt-1">
-                                <select id="status_absensi" name="status_absensi" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm
-                                    ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset
-                                    focus:ring-indigo-600 sm:text-sm sm:leading-6 p-2" required>
+                                <select id="status_absensi" name="status_absensi" class="block w-full rounded-md border-0 p-2.5 text-gray-900 shadow-sm
+                                                ring-1 ring-inset ring-gray-300 focus:ring-1 focus:ring-inset
+                                                focus:ring-indigo-600 sm:text-sm sm:leading-6" required>
                                     <option value="">Select Status</option>
                                     <option value="hadir" {{ old('status_absensi', $attendance->status_absensi) == 'hadir' ? 'selected' : '' }}>Hadir</option>
                                     <option value="izin" {{ old('status_absensi', $attendance->status_absensi) == 'izin' ? 'selected' : '' }}>Izin</option>
@@ -89,8 +88,8 @@
                     <i class="fa-solid fa-arrow-left mr-1"></i> Cancel
                 </a>
                 <button type="submit" class="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm
-                    hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2
-                    focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+                                hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2
+                                focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
                     <i class="fa-solid fa-save mr-1"></i> Update
                 </button>
             </div>

@@ -64,20 +64,16 @@
 
         {{-- Header --}}
         <header class="bg-white shadow-md sticky -top-17 z-30">
-            <div class="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
+            <div class="px-4 py-6 sm:px-6 lg:px-8">
                 <h1 class="text-3xl text-center font-bold tracking-tight text-gray-900 mt-17">
                     @yield('header')
                 </h1>
             </div>
         </header>
 
-        <div id="page-transition">
-            <div class="spinner"></div>
-        </div>
-
         {{-- Main Content --}}
         <main>
-            <div class="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
+            <div class="px-4 py-6 sm:px-6 lg:px-8">
                 @yield('content')
             </div>
         </main>

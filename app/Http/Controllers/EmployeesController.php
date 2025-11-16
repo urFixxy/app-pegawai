@@ -9,21 +9,42 @@ use App\Models\Position;
 
 class EmployeesController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
         $title = 'Employees';
-        $search = request()->query('search');
+        $search = $request->query('search');
+        $status = $request->query('status');
+        $department = $request->query('department');
+        $perPage = $request->query('per_page', 5);
+
         $employee = Employee::query()
+            ->with(['department', 'position'])
             ->when($search, function ($query, $search) {
                 return $query->where('nama_lengkap', 'like', "%{$search}%")
                     ->orWhere('email', 'like', "%{$search}%")
-                    ->orWhere('nomor_telepon', 'like', "%{$search}%")
-                    ->orWhere('alamat', 'like', "%{$search}%");
+                    ->orWhere('nomor_telepon', 'like', "%{$search}%");
+            })
+            ->when($status, function ($query, $status) {
+                return $query->where('status', $status);
+            })
+            ->when($department, function ($query, $department) {
+                return $query->where('department_id', $department);
             })
             ->orderBy('created_at', 'desc')
-            ->paginate(5)
+            ->paginate($perPage)
             ->withQueryString();
-        return view('employees.index', compact('employee', 'title'));
+
+        $departments = Department::orderBy('nama_department')->get();
+        $totalEmployees = Employee::count();
+        $activeEmployees = Employee::where('status', 'Aktif')->count();
+
+        return view('employees.index', compact(
+            'employee',
+            'title',
+            'departments',
+            'totalEmployees',
+            'activeEmployees'
+        ));
     }
 
     public function create()
