@@ -56,9 +56,6 @@
                                 <p class="text-sm font-semibold text-gray-900">{{ Auth::user()->name ?? 'User' }}</p>
                                 <p class="text-xs text-gray-500">{{ Auth::user()->email ?? 'user@example.com' }}</p>
                             </div>
-                            <a href="#"
-                                class="block px-4 py-2 text-sm text-gray-700 hover:bg-indigo-50 transition-colors"
-                                role="menuitem">Reports</a>
                             <form method="POST" action="{{ route('logout') }}" class="border-t border-gray-200">
                                 @csrf
                                 <button type="submit"
@@ -124,8 +121,6 @@
                     <a href="#"
                         class="block rounded-lg px-3 py-2 text-base font-medium text-gray-300 hover:bg-white/10 hover:text-white transition-all">
                         My Profile</a>
-                    <a href="#"
-                        class="block rounded-lg px-3 py-2 text-base font-medium text-gray-300 hover:bg-white/10 hover:text-white transition-all">Reports</a>
                     <form method="POST" action="{{ route('logout') }}">
                         @csrf
                         <button type="submit"

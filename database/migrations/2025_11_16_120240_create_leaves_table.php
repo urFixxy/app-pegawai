@@ -11,12 +11,12 @@ return new class extends Migration
         Schema::create('leaves', function (Blueprint $table) {
             $table->id();
             $table->foreignId('employee_id')->constrained('employees')->onDelete('cascade');
-            $table->date('start_date');
-            $table->date('end_date');
-            $table->integer('total_days');
-            $table->text('description')->nullable();
-            $table->enum('status', ['pending', 'approved', 'rejected'])->default('pending');
-            $table->foreignId('approved_by')->nullable()->constrained('users')->nullOnDelete();
+            $table->date('tanggal_mulai');
+            $table->date('tanggal_selesai');
+            $table->integer('total_hari');
+            $table->text('deskripsi')->nullable();
+            $table->enum('status', ['Ditunda', 'Disetujui', 'Ditolak'])->default('Ditunda');
+            $table->foreignId('disetujui_oleh')->nullable()->constrained('users')->nullOnDelete();
             $table->timestamps();
         });
     }

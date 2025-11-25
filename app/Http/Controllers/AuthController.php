@@ -22,9 +22,9 @@ class AuthController extends Controller
             'password' => ['required'],
         ]);
 
-        $remember = $request->has('remember'); // <-- Tambah ini
+        $remember = $request->has('remember');
 
-        if (Auth::attempt($credentials, $remember)) { // <-- Tambah parameter $remember
+        if (Auth::attempt($credentials, $remember)) {
             $request->session()->regenerate();
             return redirect()->intended('home');
         }
@@ -32,13 +32,6 @@ class AuthController extends Controller
         return back()->withErrors([
             'email' => 'Email atau password salah.',
         ]);
-    }
-
-
-    // halaman register
-    public function showRegister()
-    {
-        return view('auth.register');
     }
 
     // proses register

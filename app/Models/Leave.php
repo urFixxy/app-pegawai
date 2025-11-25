@@ -16,6 +16,12 @@ class Leave extends Model
         'disetujui_oleh',
     ];
 
+    protected $casts = [
+        'tanggal_mulai' => 'date',
+        'tanggal_selesai' => 'date',
+    ];
+
+
     // Relasi
     public function employee()
     {

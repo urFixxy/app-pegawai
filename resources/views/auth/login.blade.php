@@ -23,15 +23,14 @@
                         </g>
                     </svg>
                 </div>
-                <p class="mt-2 text-center text-sm text-white">
-                    Login to continue
+                <p class="mt-2 text-center text-xl text-sm text-white">
+                    Administrator
                 </p>
             </div>
             
-            <div class="bg-white py-8 px-6 shadow rounded-lg">
+            <div class="bg-white pt-6 pb-8 px-6 shadow rounded-lg">
                 <form class="space-y-6" action="{{ route('login') }}" method="POST">
                     @csrf
-                    
                     @if ($errors->any())
                         <div class="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded">
                             <ul class="list-disc list-inside text-sm">
@@ -46,7 +45,7 @@
                         <label for="email" class="block text-sm font-medium text-gray-700">
                             Email
                         </label>
-                        <div class="mt-1">
+                        <div class="">
                             <input id="email" 
                                    name="email" 
                                    type="email" 
@@ -61,7 +60,7 @@
                         <label for="password" class="block text-sm font-medium text-gray-700">
                             Password
                         </label>
-                        <div class="mt-1">
+                        <div class="">
                             <input id="password" 
                                    name="password" 
                                    type="password" 
@@ -71,29 +70,11 @@
                         </div>
                     </div>
 
-                    <div class="flex items-center justify-between">
-                        <div class="flex items-center">
-                            <input id="remember" 
-                                   name="remember" 
-                                   type="checkbox"
-                                   class="h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded">
-                            <label for="remember" class="ml-2 block text-sm text-gray-900">
-                                Remember me
-                            </label>
-                        </div>
-                    </div>
-
-                    <div>
+                    <div class="mt-4">
                         <button type="submit"
                                 class="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
                             Login
                         </button>
-                    </div>
-
-                    <div class="text-center">
-                        <a href="{{ route('register') }}" class="text-sm text-indigo-600 hover:text-indigo-500">
-                            Belum punya akun? Daftar di sini
-                        </a>
                     </div>
                 </form>
             </div>
